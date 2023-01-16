@@ -116,27 +116,28 @@ void ConfigCpuTimer(struct CPUTIMER_VARS *Timer, float Freq, float Period)
 	
 }
 
+
 void Init_ISR(void)
 {
-#if 0
+#if 1
 	DINT;
 		
 	EALLOW;  // This is needed to write to EALLOW protected registers
 
-	PieVectTable.TINT2 = &motor_pid_ISR; // motor interrupt
- 	PieVectTable.TINT0 = &sensor_timer_ISR; // sensor interrupt
-	PieVectTable.ADCINT = &adc_timer_ISR; // ADC interrupt
+//	PieVectTable.TINT2 = &Motor_ISR; // motor interrupt
+ 	PieVectTable.TINT0 = &Sensor_Value; // sensor interrupt
+	PieVectTable.ADCINT = &ADC_TIMER_ISR; // ADC interrupt
 
 	EDIS;    // This is needed to disable write to EALLOW protected registers
 
-	IER |= ( M_INT1 | M_INT14 );//TINT0, TINT1 Enable
+	IER |= ( M_INT1 | M_INT14 | M_INT13 );//TINT0, TINT1 Enable
 
 	PieCtrlRegs.PIEIER1.bit.INTx7 = 1; //Sensor interrupt
 	PieCtrlRegs.PIEIER1.bit.INTx6 = 1; //ADC interrupt
-
-	ConfigCpuTimer( &CpuTimer0 , 100.0 , 25 ); // sensor interrupt 25us
-	ConfigCpuTimer( &CpuTimer2 , 100.0 , 500.0 ); // motor interrupt 500us
-
+	
+	ConfigCpuTimer( &CpuTimer0 , 100.0 , 25.0 ); // sensor interrupt 25us
+//	ConfigCpuTimer( &CpuTimer2 , 100.0 , 500.0 ); // motor interrupt 500us
+	
 	EINT;
 	ERTM;
 #endif
@@ -145,3 +146,4 @@ void Init_ISR(void)
 //===========================================================================
 // End of file.
 //===========================================================================
+

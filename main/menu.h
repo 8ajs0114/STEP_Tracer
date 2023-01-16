@@ -15,7 +15,8 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 
-
+extern void menu(void);
+void FUCKING_NULL(void);
 
 #endif
 

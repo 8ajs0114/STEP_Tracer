@@ -18,11 +18,12 @@ OUTPUT TRANSLATION MAP
    OUTPUT FILES: a_Vulture.hex [b0..b15]
 
    CONTENTS: 003e8000..003e8001   codestart Data Width=2   
-             003e8002..003e9710   .text Data Width=2   
-             003e9711..003e9990   VFD_FONT Data Width=2   
-             003e9992..003e9bf2   .econst Data Width=2   
-             003e9bf3..003e9c15   ramfuncs Data Width=2   
-             003e9c16..003e9c32   .cinit Data Width=2   
+             003e8002..003eb0e1   .text Data Width=2   
+             003eb0e2..003ebb94   .econst Data Width=2   
+             003ebb95..003ebe14   VFD_FONT Data Width=2   
+             003ebe15..003ebf53   IQmath Data Width=2   
+             003ebf54..003ec081   .cinit Data Width=2   
+             003ec082..003ec0a4   ramfuncs Data Width=2   
 
 --------------------------------------------------------------------------------
 00000000..003fffff  Page=1  Memory Width=16  ROM Width=16  "*DEFAULT PAGE 1*"

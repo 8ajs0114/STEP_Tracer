@@ -15,6 +15,27 @@
 #ifndef __ROM_H__
 #define __ROM_H__
 
+extern void maxmin_read_rom( void );
+extern void maxmin_write_rom( void );
+extern void write_vel_rom(void);
+extern void read_vel_rom(void);
+extern void write_acc_rom(void);
+extern void read_acc_rom(void);
+extern void write_dcc_rom(void);
+extern void read_dcc_rom(void);
+extern void write_end_acc_rom(void);
+extern void read_end_acc_rom(void);
+extern void write_handle_rom(void);
+extern void read_handle_rom(void);
+extern void write_mark_cnt_rom(void);
+extern void write_line_info_rom(void);
+extern void read_mark_cnt_rom(void);
+extern void read_line_info_rom( void );
+
+
+
+
+
 
 #endif
 
