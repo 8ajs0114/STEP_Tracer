@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Jan 16 11:31:25 2023                 *
+;* Date/Time created: Sun Feb 05 21:23:36 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -169,8 +169,8 @@ DW$49	.dwtag  DW_TAG_variable, DW_AT_name("search_info"), DW_AT_symbol_name("_se
 	.dwattr DW$49, DW_AT_type(*DW$T$111)
 	.dwattr DW$49, DW_AT_declaration(0x01)
 	.dwattr DW$49, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI88410 C:\Users\JS\AppData\Local\Temp\TI8844 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI8842 --template_info_file C:\Users\JS\AppData\Local\Temp\TI8846 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI34010 C:\Users\JS\AppData\Local\Temp\TI3404 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI3402 --template_info_file C:\Users\JS\AppData\Local\Temp\TI3406 --object_file search.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_line_calc
 
@@ -659,7 +659,7 @@ DW$L$_line_calc$29$E:
         ; return occurs
 
 DW$62	.dwtag  DW_TAG_loop
-	.dwattr DW$62, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L1:1:1673836285")
+	.dwattr DW$62, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L1:1:1675599816")
 	.dwattr DW$62, DW_AT_begin_file("search.c")
 	.dwattr DW$62, DW_AT_begin_line(0x16e)
 	.dwattr DW$62, DW_AT_end_line(0x1c6)
@@ -1223,52 +1223,52 @@ L20:
 L21:    
 ;***	-----------------------g12:
 ;*** 183	-----------------------    C$3 = &((volatile long *)g_sen)[0];
-;*** 183	-----------------------    if ( C$3[113] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[113] == 32768L ) goto g20;
 	.dwpsn	"search.c",183,7
-        MOVL      XAR6,#131072          ; |183| 
+        MOVL      XAR6,#32768           ; |183| 
         MOVB      XAR0,#226             ; |183| 
         MOVL      XAR3,#_g_sen          ; |183| 
         MOVL      ACC,XAR6              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[122] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[122] == 32768L ) goto g20;
         MOVL      ACC,XAR6              ; |183| 
         MOVB      XAR0,#244             ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[131] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[131] == 32768L ) goto g20;
         MOVL      XAR0,#262             ; |183| 
         MOVL      ACC,XAR6              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[140] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[140] == 32768L ) goto g20;
         MOVL      XAR0,#280             ; |183| 
         MOVL      ACC,XAR6              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( (*(volatile struct _sensor_variable *)C$3).iq15_ON_OFF_value == 131072L ) goto g20;
+;*** 183	-----------------------    if ( (*(volatile struct _sensor_variable *)C$3).iq15_ON_OFF_value == 32768L ) goto g20;
         MOVL      ACC,XAR6              ; |183| 
         MOVB      XAR0,#10              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[14] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[14] == 32768L ) goto g20;
         MOVL      ACC,XAR6              ; |183| 
         MOVB      XAR0,#28              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[23] == 131072L ) goto g20;
+;*** 183	-----------------------    if ( C$3[23] == 32768L ) goto g20;
         MOVL      ACC,XAR6              ; |183| 
         MOVB      XAR0,#46              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
         BF        L22,EQ                ; |183| 
         ; branchcc occurs ; |183| 
-;*** 183	-----------------------    if ( C$3[32] != 131072L ) goto g30;
+;*** 183	-----------------------    if ( C$3[32] != 32768L ) goto g30;
         MOVL      ACC,XAR6              ; |183| 
         MOVB      XAR0,#64              ; |183| 
         CMPL      ACC,*+XAR3[AR0]       ; |183| 
@@ -1289,26 +1289,26 @@ L22:
         BF        L25,TC                ; |183| 
         ; branchcc occurs ; |183| 
 ;*** 186	-----------------------    C$2 = &((volatile long *)g_sen)[0];
-;*** 186	-----------------------    if ( C$2[113] == 131072L ) goto g28;
+;*** 186	-----------------------    if ( C$2[113] == 32768L ) goto g28;
 	.dwpsn	"search.c",186,3
         MOVL      ACC,XAR6              ; |186| 
         MOVB      XAR0,#226             ; |186| 
         CMPL      ACC,*+XAR3[AR0]       ; |186| 
         BF        L23,EQ                ; |186| 
         ; branchcc occurs ; |186| 
-;*** 186	-----------------------    if ( C$2[122] == 131072L ) goto g28;
+;*** 186	-----------------------    if ( C$2[122] == 32768L ) goto g28;
         MOVL      ACC,XAR6              ; |186| 
         MOVB      XAR0,#244             ; |186| 
         CMPL      ACC,*+XAR3[AR0]       ; |186| 
         BF        L23,EQ                ; |186| 
         ; branchcc occurs ; |186| 
-;*** 186	-----------------------    if ( C$2[131] == 131072L ) goto g28;
+;*** 186	-----------------------    if ( C$2[131] == 32768L ) goto g28;
         MOVL      XAR0,#262             ; |186| 
         MOVL      ACC,XAR6              ; |186| 
         CMPL      ACC,*+XAR3[AR0]       ; |186| 
         BF        L23,EQ                ; |186| 
         ; branchcc occurs ; |186| 
-;*** 186	-----------------------    if ( C$2[140] == 131072L ) goto g28;
+;*** 186	-----------------------    if ( C$2[140] == 32768L ) goto g28;
         MOVL      XAR0,#280             ; |186| 
         MOVL      ACC,XAR6              ; |186| 
         CMPL      ACC,*+XAR3[AR0]       ; |186| 
@@ -1601,7 +1601,7 @@ DW$L$_line_save$6$E:
         ; return occurs
 
 DW$119	.dwtag  DW_TAG_loop
-	.dwattr DW$119, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L28:1:1673836285")
+	.dwattr DW$119, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L28:1:1675599816")
 	.dwattr DW$119, DW_AT_begin_file("search.c")
 	.dwattr DW$119, DW_AT_begin_line(0x14d)
 	.dwattr DW$119, DW_AT_end_line(0x151)
@@ -1612,7 +1612,7 @@ DW$120	.dwtag  DW_TAG_loop_range
 
 
 DW$121	.dwtag  DW_TAG_loop
-	.dwattr DW$121, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L27:1:1673836285")
+	.dwattr DW$121, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L27:1:1675599816")
 	.dwattr DW$121, DW_AT_begin_file("search.c")
 	.dwattr DW$121, DW_AT_begin_line(0x146)
 	.dwattr DW$121, DW_AT_end_line(0x165)
@@ -1663,7 +1663,7 @@ DW$125	.dwtag  DW_TAG_subprogram, DW_AT_name("if_start_end"), DW_AT_symbol_name(
 ;***************************************************************
 _if_start_end:
 ;*** 210	-----------------------    C$5 = &g_sen[0];
-;*** 210	-----------------------    if ( (*C$5).iq15_ON_OFF_value == 131072L ) goto g5;
+;*** 210	-----------------------    if ( (*C$5).iq15_ON_OFF_value == 32768L ) goto g5;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
 	.dwcfa	0x09, 40, 26
@@ -1740,26 +1740,26 @@ DW$140	.dwtag  DW_TAG_variable, DW_AT_name("p_Flag"), DW_AT_symbol_name("_p_Flag
         MOVL      XAR2,*-SP[18]         ; |201| 
         MOVL      XAR3,XAR4             ; |201| 
 	.dwpsn	"search.c",210,2
-        MOVL      XAR4,#131072          ; |210| 
+        MOVL      XAR4,#32768           ; |210| 
         MOVB      XAR0,#10              ; |210| 
         MOVL      XAR7,#_g_sen          ; |210| 
         MOVL      ACC,XAR4              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L29,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( *((volatile long *)C$5+28L) == 131072L ) goto g5;
+;*** 210	-----------------------    if ( *((volatile long *)C$5+28L) == 32768L ) goto g5;
         MOVL      ACC,XAR4              ; |210| 
         MOVB      XAR0,#28              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L29,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( *((volatile long *)C$5+46L) == 131072L ) goto g5;
+;*** 210	-----------------------    if ( *((volatile long *)C$5+46L) == 32768L ) goto g5;
         MOVL      ACC,XAR4              ; |210| 
         MOVB      XAR0,#46              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L29,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( *((volatile long *)C$5+64L) != 131072L ) goto g16;
+;*** 210	-----------------------    if ( *((volatile long *)C$5+64L) != 32768L ) goto g16;
         MOVL      ACC,XAR4              ; |210| 
         MOVB      XAR0,#64              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
@@ -1768,25 +1768,25 @@ DW$140	.dwtag  DW_TAG_variable, DW_AT_name("p_Flag"), DW_AT_symbol_name("_p_Flag
 L29:    
 ;***	-----------------------g5:
 ;*** 210	-----------------------    C$4 = &((volatile long *)g_sen)[0];
-;*** 210	-----------------------    if ( C$4[113] == 131072L ) goto g9;
+;*** 210	-----------------------    if ( C$4[113] == 32768L ) goto g9;
         MOVL      ACC,XAR4              ; |210| 
         MOVB      XAR0,#226             ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L30,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( C$4[122] == 131072L ) goto g9;
+;*** 210	-----------------------    if ( C$4[122] == 32768L ) goto g9;
         MOVL      ACC,XAR4              ; |210| 
         MOVB      XAR0,#244             ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L30,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( C$4[131] == 131072L ) goto g9;
+;*** 210	-----------------------    if ( C$4[131] == 32768L ) goto g9;
         MOVL      XAR0,#262             ; |210| 
         MOVL      ACC,XAR4              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
         BF        L30,EQ                ; |210| 
         ; branchcc occurs ; |210| 
-;*** 210	-----------------------    if ( C$4[140] != 131072L ) goto g16;
+;*** 210	-----------------------    if ( C$4[140] != 32768L ) goto g16;
         MOVL      XAR0,#280             ; |210| 
         MOVL      ACC,XAR4              ; |210| 
         CMPL      ACC,*+XAR7[AR0]       ; |210| 
@@ -1907,26 +1907,26 @@ L31:
 L32:    
 ;***	-----------------------g16:
 ;*** 234	-----------------------    C$3 = &g_sen[0];
-;*** 234	-----------------------    if ( (*C$3).iq15_ON_OFF_value == 131072L ) goto g20;
+;*** 234	-----------------------    if ( (*C$3).iq15_ON_OFF_value == 32768L ) goto g20;
 	.dwpsn	"search.c",234,7
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#10              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L33,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( *((volatile long *)C$3+28L) == 131072L ) goto g20;
+;*** 234	-----------------------    if ( *((volatile long *)C$3+28L) == 32768L ) goto g20;
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#28              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L33,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( *((volatile long *)C$3+46L) == 131072L ) goto g20;
+;*** 234	-----------------------    if ( *((volatile long *)C$3+46L) == 32768L ) goto g20;
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#46              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L33,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( *((volatile long *)C$3+64L) != 131072L ) goto g30;
+;*** 234	-----------------------    if ( *((volatile long *)C$3+64L) != 32768L ) goto g30;
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#64              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
@@ -1935,25 +1935,25 @@ L32:
 L33:    
 ;***	-----------------------g20:
 ;*** 234	-----------------------    C$2 = &((volatile long *)g_sen)[0];
-;*** 234	-----------------------    if ( C$2[113] == 131072L ) goto g24;
+;*** 234	-----------------------    if ( C$2[113] == 32768L ) goto g24;
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#226             ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L34,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( C$2[122] == 131072L ) goto g24;
+;*** 234	-----------------------    if ( C$2[122] == 32768L ) goto g24;
         MOVL      ACC,XAR4              ; |234| 
         MOVB      XAR0,#244             ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L34,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( C$2[131] == 131072L ) goto g24;
+;*** 234	-----------------------    if ( C$2[131] == 32768L ) goto g24;
         MOVL      XAR0,#262             ; |234| 
         MOVL      ACC,XAR4              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
         BF        L34,EQ                ; |234| 
         ; branchcc occurs ; |234| 
-;*** 234	-----------------------    if ( C$2[140] != 131072L ) goto g30;
+;*** 234	-----------------------    if ( C$2[140] != 32768L ) goto g30;
         MOVL      XAR0,#280             ; |234| 
         MOVL      ACC,XAR4              ; |234| 
         CMPL      ACC,*+XAR7[AR0]       ; |234| 
@@ -2500,7 +2500,7 @@ DW$L$_second_race$2$E:
 	.dwcfa	0xc0, 7
 
 DW$154	.dwtag  DW_TAG_loop
-	.dwattr DW$154, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L39:1:1673836285")
+	.dwattr DW$154, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L39:1:1675599816")
 	.dwattr DW$154, DW_AT_begin_file("search.c")
 	.dwattr DW$154, DW_AT_begin_line(0x57)
 	.dwattr DW$154, DW_AT_end_line(0x6b)
@@ -2683,7 +2683,7 @@ DW$L$_search_race$2$E:
 	.dwcfa	0xc0, 7
 
 DW$164	.dwtag  DW_TAG_loop
-	.dwattr DW$164, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L40:1:1673836285")
+	.dwattr DW$164, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\search.asm:L40:1:1675599816")
 	.dwattr DW$164, DW_AT_begin_file("search.c")
 	.dwattr DW$164, DW_AT_begin_line(0x40)
 	.dwattr DW$164, DW_AT_end_line(0x47)
@@ -2847,28 +2847,28 @@ L42:
 L43:    
 ;***	-----------------------g8:
 ;*** 136	-----------------------    C$4 = &((volatile long *)g_sen)[0];
-;*** 136	-----------------------    if ( C$4[59] != 131072L ) goto g16;
+;*** 136	-----------------------    if ( C$4[59] != 32768L ) goto g16;
 	.dwpsn	"search.c",136,7
-        MOVL      XAR6,#131072          ; |136| 
+        MOVL      XAR6,#32768           ; |136| 
         MOVL      ACC,XAR6              ; |136| 
         MOVB      XAR0,#118             ; |136| 
         MOVL      XAR7,#_g_sen          ; |136| 
         CMPL      ACC,*+XAR7[AR0]       ; |136| 
         BF        L46,NEQ               ; |136| 
         ; branchcc occurs ; |136| 
-;*** 136	-----------------------    if ( C$4[68] != 131072L ) goto g16;
+;*** 136	-----------------------    if ( C$4[68] != 32768L ) goto g16;
         MOVL      ACC,XAR6              ; |136| 
         MOVB      XAR0,#136             ; |136| 
         CMPL      ACC,*+XAR7[AR0]       ; |136| 
         BF        L46,NEQ               ; |136| 
         ; branchcc occurs ; |136| 
-;*** 136	-----------------------    if ( C$4[77] != 131072L ) goto g16;
+;*** 136	-----------------------    if ( C$4[77] != 32768L ) goto g16;
         MOVL      ACC,XAR6              ; |136| 
         MOVB      XAR0,#154             ; |136| 
         CMPL      ACC,*+XAR7[AR0]       ; |136| 
         BF        L46,NEQ               ; |136| 
         ; branchcc occurs ; |136| 
-;*** 136	-----------------------    if ( C$4[86] != 131072L ) goto g16;
+;*** 136	-----------------------    if ( C$4[86] != 32768L ) goto g16;
         MOVL      ACC,XAR6              ; |136| 
         MOVB      XAR0,#172             ; |136| 
         CMPL      ACC,*+XAR7[AR0]       ; |136| 

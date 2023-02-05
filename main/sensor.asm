@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Jan 16 11:31:25 2023                 *
+;* Date/Time created: Sun Feb 05 21:23:35 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -325,8 +325,8 @@ DW$66	.dwtag  DW_TAG_variable, DW_AT_name("g_sen"), DW_AT_symbol_name("_g_sen")
 	.dwattr DW$66, DW_AT_type(*DW$T$145)
 	.dwattr DW$66, DW_AT_declaration(0x01)
 	.dwattr DW$66, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI26810 C:\Users\JS\AppData\Local\Temp\TI2684 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI2682 --template_info_file C:\Users\JS\AppData\Local\Temp\TI2686 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI02410 C:\Users\JS\AppData\Local\Temp\TI0244 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI0242 --template_info_file C:\Users\JS\AppData\Local\Temp\TI0246 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_sen_vari_init
 
@@ -414,12 +414,12 @@ DW$71	.dwtag  DW_TAG_variable, DW_AT_name("U$14"), DW_AT_symbol_name("U$14")
         MOVL      XAR4,XAR1
         MOVB      XAR6,#15
         MOVB      XAR5,#18              ; |322| 
-        MOV       PH,#8190
-        MOV       PL,#0
+        MOV       PH,#2047
+        MOV       PL,#32768
 L1:    
 DW$L$_sen_vari_init$2$B:
 ;***	-----------------------g2:
-;*** 323	-----------------------    (*U$14).iq15_4095_min_value = 536739840L;
+;*** 323	-----------------------    (*U$14).iq15_4095_min_value = 134184960L;
 ;*** 322	-----------------------    U$14 += 18;
 ;*** 322	-----------------------    if ( (--L$1) != (-1) ) goto g2;
 	.dwpsn	"sensor.c",323,2
@@ -655,7 +655,7 @@ DW$L$_sen_vari_init$2$E:
         ; return occurs
 
 DW$72	.dwtag  DW_TAG_loop
-	.dwattr DW$72, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L1:1:1673836285")
+	.dwattr DW$72, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L1:1:1675599815")
 	.dwattr DW$72, DW_AT_begin_file("sensor.c")
 	.dwattr DW$72, DW_AT_begin_line(0x142)
 	.dwattr DW$72, DW_AT_end_line(0x143)
@@ -1676,12 +1676,12 @@ DW$L$_Sensor_setting$14$E:
 L29:    
 DW$L$_Sensor_setting$16$B:
 ;***	-----------------------g16:
-;*** 297	-----------------------    (*U$19).iq15_4095_max_value -= __IQmpy((*U$19).iq15_4095_max_value, 26214L, 15);
-;*** 298	-----------------------    (*U$19).iq15_4095_min_value += __IQmpy((*U$19).iq15_4095_min_value, 32768L, 15);
+;*** 297	-----------------------    (*U$19).iq15_4095_max_value -= __IQmpy((*U$19).iq15_4095_max_value, 6553L, 15);
+;*** 298	-----------------------    (*U$19).iq15_4095_min_value += __IQmpy((*U$19).iq15_4095_min_value, 8192L, 15);
 ;*** 295	-----------------------    U$19 += 18;
 ;*** 295	-----------------------    if ( (--L$1) != (-1) ) goto g16;
 	.dwpsn	"sensor.c",297,3
-        MOVL      XAR5,#26214           ; |297| 
+        MOVL      XAR5,#6553            ; |297| 
         MOVL      XT,*+XAR4[4]          ; |297| 
         IMPYL     P,XT,XAR5             ; |297| 
         QMPYL     ACC,XT,XAR5           ; |297| 
@@ -1689,7 +1689,7 @@ DW$L$_Sensor_setting$16$B:
         MOVL      ACC,P                 ; |297| 
         SUBL      *+XAR4[4],ACC         ; |297| 
 	.dwpsn	"sensor.c",298,3
-        MOVL      XAR5,#32768           ; |298| 
+        MOVL      XAR5,#8192            ; |298| 
         MOVL      XT,*+XAR4[2]          ; |298| 
         IMPYL     P,XT,XAR5             ; |298| 
         QMPYL     ACC,XT,XAR5           ; |298| 
@@ -1742,7 +1742,7 @@ DW$L$_Sensor_setting$16$E:
         ; return occurs
 
 DW$95	.dwtag  DW_TAG_loop
-	.dwattr DW$95, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L29:1:1673836285")
+	.dwattr DW$95, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L29:1:1675599815")
 	.dwattr DW$95, DW_AT_begin_file("sensor.c")
 	.dwattr DW$95, DW_AT_begin_line(0x127)
 	.dwattr DW$95, DW_AT_end_line(0x12b)
@@ -1753,7 +1753,7 @@ DW$96	.dwtag  DW_TAG_loop_range
 
 
 DW$97	.dwtag  DW_TAG_loop
-	.dwattr DW$97, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L26:1:1673836285")
+	.dwattr DW$97, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L26:1:1675599815")
 	.dwattr DW$97, DW_AT_begin_file("sensor.c")
 	.dwattr DW$97, DW_AT_begin_line(0x10a)
 	.dwattr DW$97, DW_AT_end_line(0x124)
@@ -1776,7 +1776,7 @@ DW$102	.dwtag  DW_TAG_loop_range
 
 
 DW$103	.dwtag  DW_TAG_loop
-	.dwattr DW$103, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L23:1:1673836285")
+	.dwattr DW$103, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L23:1:1675599815")
 	.dwattr DW$103, DW_AT_begin_file("sensor.c")
 	.dwattr DW$103, DW_AT_begin_line(0xeb)
 	.dwattr DW$103, DW_AT_end_line(0x103)
@@ -1799,7 +1799,7 @@ DW$108	.dwtag  DW_TAG_loop_range
 
 
 DW$109	.dwtag  DW_TAG_loop
-	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L22:1:1673836285")
+	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L22:1:1675599815")
 	.dwattr DW$109, DW_AT_begin_file("sensor.c")
 	.dwattr DW$109, DW_AT_begin_line(0xe3)
 	.dwattr DW$109, DW_AT_end_line(0xe7)
@@ -1972,7 +1972,7 @@ DW$113	.dwtag  DW_TAG_subprogram, DW_AT_name("Handle"), DW_AT_symbol_name("_Hand
 ;*                                                             *
 ;***************************************************************
 _Handle:
-;*** 356	-----------------------    (*p_pos).iq15real_position = __IQmpy((*p_pos).iq10temp_position<<5, 1310L, 17);
+;*** 356	-----------------------    (*p_pos).iq15real_position = __IQmpy((*p_pos).iq10temp_position<<5, 327L, 15);
 ;*** 358	-----------------------    if ( (*p_pos).iq15real_position > 0L ) goto g5;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
@@ -2004,15 +2004,15 @@ DW$119	.dwtag  DW_TAG_variable, DW_AT_name("p_pos"), DW_AT_symbol_name("_p_pos")
 	.dwpsn	"sensor.c",356,2
         MOVB      XAR0,#14              ; |356| 
         MOVL      ACC,*+XAR4[AR0]       ; |356| 
-        MOVL      XAR6,#1310            ; |356| 
+        MOVL      XAR6,#327             ; |356| 
         LSL       ACC,5                 ; |356| 
         MOVL      XT,ACC                ; |356| 
         IMPYL     P,XT,XAR6             ; |356| 
         MOVB      XAR0,#16              ; |356| 
         MOVL      XT,ACC                ; |356| 
         QMPYL     ACC,XT,XAR6           ; |356| 
-        LSL64     ACC:P,#15             ; |356| 
-        MOVL      *+XAR4[AR0],ACC       ; |356| 
+        ASR64     ACC:P,#15             ; |356| 
+        MOVL      *+XAR4[AR0],P         ; |356| 
 	.dwpsn	"sensor.c",358,2
         MOVL      ACC,*+XAR4[AR0]       ; |358| 
         BF        L32,GT                ; |358| 
@@ -2022,11 +2022,11 @@ DW$119	.dwtag  DW_TAG_variable, DW_AT_name("p_pos"), DW_AT_symbol_name("_p_pos")
         MOVL      ACC,*+XAR4[AR0]       ; |367| 
         BF        L30,LT                ; |367| 
         ; branchcc occurs ; |367| 
-;*** 378	-----------------------    (*p_RM).iqHandle = 131072L;
-;*** 379	-----------------------    (*p_LM).iqHandle = 131072L;
+;*** 378	-----------------------    (*p_RM).iqHandle = 32768L;
+;*** 379	-----------------------    (*p_LM).iqHandle = 32768L;
 ;*** 379	-----------------------    goto g7;
 	.dwpsn	"sensor.c",378,3
-        MOVL      XAR4,#131072          ; |378| 
+        MOVL      XAR4,#32768           ; |378| 
         MOVB      XAR0,#14              ; |378| 
         MOVL      *+XAR7[AR0],XAR4      ; |378| 
 	.dwpsn	"sensor.c",379,3
@@ -2035,16 +2035,17 @@ DW$119	.dwtag  DW_TAG_variable, DW_AT_name("p_pos"), DW_AT_symbol_name("_p_pos")
         ; branch occurs ; |379| 
 L30:    
 ;***	-----------------------g4:
-;*** 369	-----------------------    (*p_LM).iqHandle = 131072L-__IQmpy((*p_pos).iq15real_position, g_iq15_handle_dcc, 17);
-;*** 370	-----------------------    v$2 = v$1 = __IQmpy((*p_pos).iq15real_position, g_iq15_handle_acc, 17)+131072L;
+;*** 369	-----------------------    (*p_LM).iqHandle = 32768L-__IQmpy((*p_pos).iq15real_position, g_iq15_handle_dcc, 15);
+;*** 370	-----------------------    v$2 = v$1 = __IQmpy((*p_pos).iq15real_position, g_iq15_handle_acc, 15)+32768L;
 ;*** 372	-----------------------    (*p_RM).iqHandle = (v$1 <= 0L) ? 0L : v$2;
 	.dwpsn	"sensor.c",369,3
         MOVW      DP,#_g_iq15_handle_dcc
         MOVL      XT,*+XAR4[AR0]        ; |369| 
-        MOVL      XAR6,#131072          ; |369| 
+        MOVL      XAR6,#32768           ; |369| 
         IMPYL     P,XT,@_g_iq15_handle_dcc ; |369| 
         QMPYL     ACC,XT,@_g_iq15_handle_dcc ; |369| 
-        LSL64     ACC:P,#15             ; |369| 
+        ASR64     ACC:P,#15             ; |369| 
+        MOVL      ACC,P
         SUBL      XAR6,ACC
         MOVB      XAR0,#14              ; |369| 
         MOVL      *+XAR5[AR0],XAR6      ; |369| 
@@ -2052,10 +2053,11 @@ L30:
         MOVB      XAR0,#16              ; |370| 
         MOVW      DP,#_g_iq15_handle_acc
         MOVL      XT,*+XAR4[AR0]        ; |370| 
-        QMPYL     ACC,XT,@_g_iq15_handle_acc ; |370| 
         IMPYL     P,XT,@_g_iq15_handle_acc ; |370| 
-        LSL64     ACC:P,#15             ; |370| 
-        ADD       ACC,#4 << 15          ; |370| 
+        QMPYL     ACC,XT,@_g_iq15_handle_acc ; |370| 
+        ASR64     ACC:P,#15             ; |370| 
+        MOVL      ACC,P                 ; |370| 
+        ADD       ACC,#1 << 15          ; |370| 
 	.dwpsn	"sensor.c",372,3
         BF        L31,GT                ; |372| 
         ; branchcc occurs ; |372| 
@@ -2069,16 +2071,17 @@ L31:
         ; branch occurs ; |373| 
 L32:    
 ;***	-----------------------g5:
-;*** 360	-----------------------    (*p_LM).iqHandle = 131072L-__IQmpy((*p_pos).iq15real_position, g_iq15_handle_acc, 17);
-;*** 361	-----------------------    (*p_RM).iqHandle = __IQmpy((*p_pos).iq15real_position, g_iq15_handle_dcc, 17)+131072L;
+;*** 360	-----------------------    (*p_LM).iqHandle = 32768L-__IQmpy((*p_pos).iq15real_position, g_iq15_handle_acc, 15);
+;*** 361	-----------------------    (*p_RM).iqHandle = __IQmpy((*p_pos).iq15real_position, g_iq15_handle_dcc, 15)+32768L;
 ;*** 363	-----------------------    if ( (*p_LM).iqHandle > 0L ) goto g7;
 	.dwpsn	"sensor.c",360,3
         MOVW      DP,#_g_iq15_handle_acc
         MOVL      XT,*+XAR4[AR0]        ; |360| 
-        MOVL      XAR6,#131072          ; |360| 
+        MOVL      XAR6,#32768           ; |360| 
         IMPYL     P,XT,@_g_iq15_handle_acc ; |360| 
         QMPYL     ACC,XT,@_g_iq15_handle_acc ; |360| 
-        LSL64     ACC:P,#15             ; |360| 
+        ASR64     ACC:P,#15             ; |360| 
+        MOVL      ACC,P
         SUBL      XAR6,ACC
         MOVB      XAR0,#14              ; |360| 
         MOVL      *+XAR5[AR0],XAR6      ; |360| 
@@ -2088,9 +2091,10 @@ L32:
         MOVL      XT,*+XAR4[AR0]        ; |361| 
         IMPYL     P,XT,@_g_iq15_handle_dcc ; |361| 
         QMPYL     ACC,XT,@_g_iq15_handle_dcc ; |361| 
-        LSL64     ACC:P,#15             ; |361| 
+        ASR64     ACC:P,#15             ; |361| 
+        MOVL      ACC,P                 ; |361| 
         MOVB      XAR0,#14              ; |361| 
-        ADD       ACC,#4 << 15          ; |361| 
+        ADD       ACC,#1 << 15          ; |361| 
         MOVL      *+XAR7[AR0],ACC       ; |361| 
 	.dwpsn	"sensor.c",363,3
         MOVL      ACC,*+XAR5[AR0]       ; |363| 
@@ -2397,7 +2401,7 @@ DW$127	.dwtag  DW_TAG_variable, DW_AT_name("K$17"), DW_AT_symbol_name("K$17")
         CMPL      ACC,*+XAR4[0]         ; |158| 
         BF        L34,GT                ; |158| 
         ; branchcc occurs ; |158| 
-;*** 164	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_127_value = __IQmpy(_IQ15div((K$17[g_int32_copmare_cnt]).iq15_4095_value-(K$17[g_int32_copmare_cnt]).iq15_4095_min_value, (K$17[g_int32_copmare_cnt]).iq15_4095_max_value-(K$17[g_int32_copmare_cnt]).iq15_4095_min_value), 16646144L, 15);
+;*** 164	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_127_value = __IQmpy(_IQ15div((K$17[g_int32_copmare_cnt]).iq15_4095_value-(K$17[g_int32_copmare_cnt]).iq15_4095_min_value, (K$17[g_int32_copmare_cnt]).iq15_4095_max_value-(K$17[g_int32_copmare_cnt]).iq15_4095_min_value), 4161536L, 15);
 ;*** 164	-----------------------    goto g6;
 	.dwpsn	"sensor.c",164,3
         MOVB      ACC,#18
@@ -2427,11 +2431,10 @@ DW$127	.dwtag  DW_TAG_variable, DW_AT_name("K$17"), DW_AT_symbol_name("K$17")
         SUBL      ACC,*+XAR4[2]         ; |164| 
         LCR       #__IQ15div            ; |164| 
         ; call occurs [#__IQ15div] ; |164| 
+        MOVL      XAR4,#4161536         ; |164| 
         MOVL      XT,ACC                ; |164| 
-        MOV       AH,#254
-        MOV       AL,#0
-        IMPYL     P,XT,ACC              ; |164| 
-        QMPYL     ACC,XT,ACC            ; |164| 
+        IMPYL     P,XT,XAR4             ; |164| 
+        QMPYL     ACC,XT,XAR4           ; |164| 
         ASR64     ACC:P,#15             ; |164| 
         MOVB      ACC,#18
         MOVL      XAR4,XAR1             ; |164| 
@@ -2460,51 +2463,49 @@ L34:
         ; branch occurs ; |159| 
 L35:    
 ;***	-----------------------g5:
-;*** 154	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_127_value = 16646144L;
+;*** 154	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_127_value = 4161536L;
 	.dwpsn	"sensor.c",154,3
-        MOVL      XAR4,XAR1             ; |154| 
+        MOVL      XAR5,XAR1             ; |154| 
         MOVB      ACC,#18
         MOVL      XT,ACC                ; |154| 
         IMPYL     ACC,XT,@_g_int32_copmare_cnt ; |154| 
-        ADDL      XAR4,ACC
+        ADDL      XAR5,ACC
+        MOVL      XAR4,#4161536         ; |154| 
         MOVB      XAR0,#8               ; |154| 
-        MOV       AH,#254
-        MOV       AL,#0
-        MOVL      *+XAR4[AR0],ACC       ; |154| 
+        MOVL      *+XAR5[AR0],XAR4      ; |154| 
 L36:    
 ;***	-----------------------g6:
-;*** 171	-----------------------    if ( (K$17[g_int32_copmare_cnt]).iq15_127_value < 4587520L ) goto g9;
+;*** 171	-----------------------    if ( (K$17[g_int32_copmare_cnt]).iq15_127_value < 1146880L ) goto g9;
 	.dwpsn	"sensor.c",171,2
-        MOVL      XAR4,XAR1             ; |171| 
+        MOVL      XAR5,XAR1             ; |171| 
         MOVB      ACC,#18
         MOVL      XT,ACC                ; |171| 
         IMPYL     ACC,XT,@_g_int32_copmare_cnt ; |171| 
-        ADDL      XAR4,ACC
-        MOV       AL,#0
-        MOV       AH,#70
-        CMPL      ACC,*+XAR4[AR0]       ; |171| 
+        ADDL      XAR5,ACC
+        MOVL      XAR4,#1146880         ; |171| 
+        MOVL      ACC,XAR4              ; |171| 
+        CMPL      ACC,*+XAR5[AR0]       ; |171| 
         BF        L37,GT                ; |171| 
         ; branchcc occurs ; |171| 
-;*** 174	-----------------------    if ( (K$17[g_int32_copmare_cnt]).iq15_127_value < 4587520L ) goto g10;
+;*** 174	-----------------------    if ( (K$17[g_int32_copmare_cnt]).iq15_127_value < 1146880L ) goto g10;
 	.dwpsn	"sensor.c",174,7
-        MOVL      XAR4,XAR1             ; |174| 
+        MOVL      XAR5,XAR1             ; |174| 
         MOVB      ACC,#18
         MOVL      XT,ACC                ; |174| 
         IMPYL     ACC,XT,@_g_int32_copmare_cnt ; |174| 
-        ADDL      XAR4,ACC
-        MOV       AL,#0
-        MOV       AH,#70
-        CMPL      ACC,*+XAR4[AR0]       ; |174| 
+        ADDL      XAR5,ACC
+        MOVL      ACC,XAR4              ; |174| 
+        CMPL      ACC,*+XAR5[AR0]       ; |174| 
         BF        L38,GT                ; |174| 
         ; branchcc occurs ; |174| 
-;*** 175	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_ON_OFF_value = 131072L;
+;*** 175	-----------------------    (K$17[g_int32_copmare_cnt]).iq15_ON_OFF_value = 32768L;
 ;*** 175	-----------------------    goto g10;
 	.dwpsn	"sensor.c",175,3
         MOVB      ACC,#18
         MOVL      XT,ACC                ; |175| 
         IMPYL     ACC,XT,@_g_int32_copmare_cnt ; |175| 
         ADDL      XAR1,ACC
-        MOVL      XAR4,#131072          ; |175| 
+        MOVL      XAR4,#32768           ; |175| 
         MOVB      XAR0,#10              ; |175| 
         MOVL      *+XAR1[AR0],XAR4      ; |175| 
         BF        L38,UNC               ; |175| 

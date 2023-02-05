@@ -1,0 +1,4 @@
+---- left_step Matches (2 in 2 files) ----
+
+Sensor.c (main):volatile int32 left_step[] = 
+Variable.h (main):#define 	L_MOTOR 		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xffff0fff ) | left_step[g_u32_L_index & 0x3]//12,13,14,15

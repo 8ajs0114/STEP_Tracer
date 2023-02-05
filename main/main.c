@@ -26,11 +26,11 @@ void System_Init(void)
 
 	Init_ISR();
 
-	InitEPWM( &LeftPwmRegs );
-	InitEPWM( &RightPwmRegs );
+//	InitEPWM( &LeftPwmRegs );
+//	InitEPWM( &RightPwmRegs );
 	
-	InitEQep( &LeftQepRegs );
-	InitEQep( &RightQepRegs );
+//	InitEQep( &LeftQepRegs );
+//	InitEQep( &RightQepRegs );
 	
 }
 

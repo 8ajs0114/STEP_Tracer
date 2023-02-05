@@ -355,7 +355,7 @@ void Handle(position_t *p_pos, MOTORCTRL *p_LM,  MOTORCTRL *p_RM)
 {
 	p_pos->iq15real_position = _IQmpy(p_pos->iq10temp_position << 5, _IQ(0.01));
 
-	if( p_pos->iq15real_position > _IQ15( 0.0 ) )		//  라인이 ringt
+	if( p_pos->iq15real_position > _IQ15( 0.0 ) )		//  라인이 right
 	{
 		p_LM->iqHandle = _IQ( 1.0 ) - _IQmpy( p_pos->iq15real_position, g_iq15_handle_acc);	
 		p_RM->iqHandle = _IQ( 1.0 ) + _IQmpy( p_pos->iq15real_position, g_iq15_handle_dcc);	

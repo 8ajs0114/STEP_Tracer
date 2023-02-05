@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Mon Jan 16 11:31:24 2023                 *
+;* Date/Time created: Sun Feb 05 21:23:34 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -139,8 +139,8 @@ DW$39	.dwtag  DW_TAG_variable, DW_AT_name("R_Motor"), DW_AT_symbol_name("_R_Moto
 	.dwattr DW$39, DW_AT_type(*DW$T$53)
 	.dwattr DW$39, DW_AT_declaration(0x01)
 	.dwattr DW$39, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI65610 C:\Users\JS\AppData\Local\Temp\TI6564 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI6562 --template_info_file C:\Users\JS\AppData\Local\Temp\TI6566 --object_file Motor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI14010 C:\Users\JS\AppData\Local\Temp\TI1404 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI1402 --template_info_file C:\Users\JS\AppData\Local\Temp\TI1406 --object_file Motor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_move_to_move
 
@@ -1296,11 +1296,11 @@ DW$72	.dwtag  DW_TAG_subprogram, DW_AT_name("Motor_ON"), DW_AT_symbol_name("_Mot
 ;*                                                             *
 ;***************************************************************
 _Motor_ON:
-;*** 109	-----------------------    (*pM).iq15Turnmark_Check_Dist += 107987L;
-;*** 110	-----------------------    (*pM).iq15Cross_Check_Dist += 107987L;
-;*** 111	-----------------------    (*pM).iq15Start_Check_Dist += 107987L;
-;*** 112	-----------------------    (*pM).iq15GoneDist = v$1 = (*pM).iq15GoneDist+107987L;
-;*** 113	-----------------------    (*pM).iq15current_dist += 107987L;
+;*** 109	-----------------------    (*pM).iq15Turnmark_Check_Dist += 26996L;
+;*** 110	-----------------------    (*pM).iq15Cross_Check_Dist += 26996L;
+;*** 111	-----------------------    (*pM).iq15Start_Check_Dist += 26996L;
+;*** 112	-----------------------    (*pM).iq15GoneDist = v$1 = (*pM).iq15GoneDist+26996L;
+;*** 113	-----------------------    (*pM).iq15current_dist += 26996L;
 ;*** 115	-----------------------    (*pM).iq15remnant_dist = v$2 = (*pM).iq15target_dist-v$1;
 ;*** 117	-----------------------    if ( (*pM).u16decel_flag == 0u || (*pM).iq15decel_distance < ABS(v$2) ) goto g3;
 	.dwcfa	0x1d, -2
@@ -1326,7 +1326,7 @@ DW$76	.dwtag  DW_TAG_variable, DW_AT_name("pM"), DW_AT_symbol_name("_pM")
         MOVB      ACC,#28
         ADDL      ACC,XAR4
         MOVL      XAR6,ACC              ; |109| 
-        MOVL      XAR5,#107987          ; |109| 
+        MOVL      XAR5,#26996           ; |109| 
         MOVL      ACC,XAR5              ; |109| 
         ADDL      *+XAR6[0],ACC         ; |109| 
 	.dwpsn	"Motor.c",110,2
@@ -1513,34 +1513,34 @@ DW$90	.dwtag  DW_TAG_variable, DW_AT_name("v$5"), DW_AT_symbol_name("v$5")
 L26:    
 ;***	-----------------------g4:
 ;*** 89	-----------------------    (*pM).iqVelo = v$1;
-;*** 90	-----------------------    (*pM).iqAmpyS = v$3 = __IQmpy(215975L, (*pM).iqTargetACC, 17);
+;*** 90	-----------------------    (*pM).iqAmpyS = v$3 = __IQmpy(53993L, (*pM).iqTargetACC, 15);
 ;*** 91	-----------------------    C$2 = v$1>>9;
 ;*** 91	-----------------------    (*pM).iqNextV = _IQ6sqrt(__IQmpy(C$2, C$2, 6)-(v$3>>9))<<9;
-;*** 92	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy((*pM).iqTargetACC, 1310L, 17)<<9;
+;*** 92	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy((*pM).iqTargetACC, 327L, 15)<<9;
 ;*** 93	-----------------------    (*pM).iq24TargetA_1 = v$4 = _IQ24div(16777216L, v$4);
 ;*** 94	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy(v$4, 167772L, 24);
 ;*** 95	-----------------------    (*pM).iq24TimeValue = v$5 = __IQmpy((*pM).iqVelo-(*pM).iqNextV<<9, v$4, 24);
-;*** 96	-----------------------    (*pM).u32_Period = __IQmpy(__IQxmpy(80000L, v$5, 24), (*pM).iqHandle, 17)>>15;
+;*** 96	-----------------------    (*pM).u32_Period = __IQmpy(__IQxmpy(80000L, v$5, 22), (*pM).iqHandle, 15)>>15;
 ;*** 97	-----------------------    (*pM).u32_Period_Cnt = 0uL;
 ;*** 98	-----------------------    goto g6;
 	.dwpsn	"Motor.c",89,3
         MOVL      *+XAR1[6],XAR6        ; |89| 
 	.dwpsn	"Motor.c",90,3
-        MOVL      XAR4,#215975          ; |90| 
+        MOVL      XAR4,#53993           ; |90| 
         MOVL      XT,XAR4               ; |90| 
         MOVB      XAR0,#12              ; |90| 
         IMPYL     P,XT,*+XAR1[0]        ; |90| 
         QMPYL     ACC,XT,*+XAR1[0]      ; |90| 
-        LSL64     ACC:P,#15             ; |90| 
-        MOVL      *+XAR1[AR0],ACC       ; |90| 
-        MOVL      XAR7,ACC              ; |90| 
+        ASR64     ACC:P,#15             ; |90| 
+        MOVL      *+XAR1[AR0],P         ; |90| 
+        MOVL      XAR7,P                ; |90| 
 	.dwpsn	"Motor.c",91,3
         SETC      SXM
         MOVL      ACC,XAR6              ; |91| 
         SFR       ACC,9                 ; |91| 
         MOVL      XT,ACC                ; |91| 
-        IMPYL     P,XT,XT               ; |91| 
         QMPYL     ACC,XT,XT             ; |91| 
+        IMPYL     P,XT,XT               ; |91| 
         ASR64     ACC:P,#6              ; |91| 
         MOVL      ACC,XAR7              ; |91| 
         SFR       ACC,9                 ; |91| 
@@ -1552,11 +1552,12 @@ L26:
         LSL       ACC,9                 ; |91| 
         MOVL      *+XAR1[AR0],ACC       ; |91| 
 	.dwpsn	"Motor.c",92,3
-        MOVL      XAR4,#1310            ; |92| 
+        MOVL      XAR4,#327             ; |92| 
         MOVL      XT,*+XAR1[0]          ; |92| 
         IMPYL     P,XT,XAR4             ; |92| 
         QMPYL     ACC,XT,XAR4           ; |92| 
-        LSL64     ACC:P,#15             ; |92| 
+        ASR64     ACC:P,#15             ; |92| 
+        MOVL      ACC,P                 ; |92| 
         LSL       ACC,9                 ; |92| 
         MOVL      XAR6,ACC              ; |92| 
         MOVB      XAR0,#18              ; |92| 
@@ -1595,13 +1596,14 @@ L26:
         MOVL      XT,XAR4               ; |96| 
         IMPYL     P,XT,ACC              ; |96| 
         QMPYL     ACC,XT,ACC            ; |96| 
-        ASR64     ACC:P,8               ; |96| 
+        ASR64     ACC:P,10              ; |96| 
         MOVB      XAR0,#14              ; |96| 
         MOVL      XT,P                  ; |96| 
         IMPYL     P,XT,*+XAR1[AR0]      ; |96| 
         QMPYL     ACC,XT,*+XAR1[AR0]    ; |96| 
+        ASR64     ACC:P,#15             ; |96| 
         SETC      SXM
-        LSL64     ACC:P,#15             ; |96| 
+        MOVL      ACC,P                 ; |96| 
         MOVB      XAR0,#24              ; |96| 
         SFR       ACC,15                ; |96| 
         MOVL      *+XAR1[AR0],ACC       ; |96| 
@@ -1615,35 +1617,35 @@ L26:
 L27:    
 ;***	-----------------------g5:
 ;*** 62	-----------------------    (*pM).iqVelo = v$1;
-;*** 63	-----------------------    (*pM).iqAmpyS = v$3 = __IQmpy(215975L, (*pM).iqTargetACC, 17);
+;*** 63	-----------------------    (*pM).iqAmpyS = v$3 = __IQmpy(53993L, (*pM).iqTargetACC, 15);
 ;*** 64	-----------------------    C$1 = v$1>>9;
 ;*** 64	-----------------------    (*pM).iqNextV = _IQ6sqrt((v$3>>9)+__IQmpy(C$1, C$1, 6))<<9;
-;*** 68	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy((*pM).iqTargetACC, 1310L, 17)<<9;
+;*** 68	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy((*pM).iqTargetACC, 327L, 15)<<9;
 ;*** 69	-----------------------    (*pM).iq24TargetA_1 = v$4 = _IQ24div(16777216L, v$4);
 ;*** 70	-----------------------    (*pM).iq24TargetA_1 = v$4 = __IQmpy(v$4, 167772L, 24);
 ;*** 74	-----------------------    (*pM).iq24TimeValue = v$5 = __IQmpy((*pM).iqNextV-(*pM).iqVelo<<9, v$4, 24);
-;*** 78	-----------------------    (*pM).u32_Period = __IQmpy(__IQxmpy(80000L, v$5, 22), (*pM).iqHandle, 17)>>15;
+;*** 78	-----------------------    (*pM).u32_Period = __IQmpy(__IQxmpy(80000L, v$5, 22), (*pM).iqHandle, 15)>>15;
 ;*** 81	-----------------------    (*pM).u32_Period_Cnt = 0uL;
 ;***	-----------------------g6:
 ;***  	-----------------------    return;
 	.dwpsn	"Motor.c",62,3
         MOVL      *+XAR1[6],XAR6        ; |62| 
 	.dwpsn	"Motor.c",63,3
-        MOVL      XAR4,#215975          ; |63| 
+        MOVL      XAR4,#53993           ; |63| 
         MOVL      XT,XAR4               ; |63| 
         MOVB      XAR0,#12              ; |63| 
         IMPYL     P,XT,*+XAR1[0]        ; |63| 
         QMPYL     ACC,XT,*+XAR1[0]      ; |63| 
-        LSL64     ACC:P,#15             ; |63| 
-        MOVL      *+XAR1[AR0],ACC       ; |63| 
-        MOVL      XAR7,ACC              ; |63| 
+        ASR64     ACC:P,#15             ; |63| 
+        MOVL      *+XAR1[AR0],P         ; |63| 
+        MOVL      XAR7,P                ; |63| 
 	.dwpsn	"Motor.c",64,3
         SETC      SXM
         MOVL      ACC,XAR6              ; |64| 
         SFR       ACC,9                 ; |64| 
         MOVL      XT,ACC                ; |64| 
-        IMPYL     P,XT,XT               ; |64| 
         QMPYL     ACC,XT,XT             ; |64| 
+        IMPYL     P,XT,XT               ; |64| 
         ASR64     ACC:P,#6              ; |64| 
         MOVL      ACC,XAR7              ; |64| 
         SFR       ACC,9                 ; |64| 
@@ -1654,11 +1656,12 @@ L27:
         LSL       ACC,9                 ; |64| 
         MOVL      *+XAR1[AR0],ACC       ; |64| 
 	.dwpsn	"Motor.c",68,3
-        MOVL      XAR4,#1310            ; |68| 
+        MOVL      XAR4,#327             ; |68| 
         MOVL      XT,*+XAR1[0]          ; |68| 
         IMPYL     P,XT,XAR4             ; |68| 
         QMPYL     ACC,XT,XAR4           ; |68| 
-        LSL64     ACC:P,#15             ; |68| 
+        ASR64     ACC:P,#15             ; |68| 
+        MOVL      ACC,P                 ; |68| 
         LSL       ACC,9                 ; |68| 
         MOVL      XAR6,ACC              ; |68| 
         MOVB      XAR0,#18              ; |68| 
@@ -1702,8 +1705,9 @@ L27:
         MOVL      XT,P                  ; |78| 
         IMPYL     P,XT,*+XAR1[AR0]      ; |78| 
         QMPYL     ACC,XT,*+XAR1[AR0]    ; |78| 
+        ASR64     ACC:P,#15             ; |78| 
         SETC      SXM
-        LSL64     ACC:P,#15             ; |78| 
+        MOVL      ACC,P                 ; |78| 
         MOVB      XAR0,#24              ; |78| 
         SFR       ACC,15                ; |78| 
         MOVL      *+XAR1[AR0],ACC       ; |78| 
