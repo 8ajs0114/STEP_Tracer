@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sun Feb 05 21:23:34 2023                 *
+;* Date/Time created: Sat Jul 15 11:08:08 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -245,8 +245,8 @@ DW$18	.dwtag  DW_TAG_variable, DW_AT_name("setting"), DW_AT_symbol_name("_settin
 	.dwattr DW$18, DW_AT_location[DW_OP_addr _setting]
 	.dwattr DW$18, DW_AT_type(*DW$T$52)
 	.dwattr DW$18, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI29210 C:\Users\JS\AppData\Local\Temp\TI2924 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI2922 --template_info_file C:\Users\JS\AppData\Local\Temp\TI2926 --object_file menu.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI43610 C:\Users\JS\AppData\Local\Temp\TI4364 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI4362 --template_info_file C:\Users\JS\AppData\Local\Temp\TI4366 --object_file menu.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_FUCKING_NULL
 
@@ -336,7 +336,7 @@ DW$20	.dwtag  DW_TAG_subprogram, DW_AT_name("menu"), DW_AT_symbol_name("_menu")
 _menu:
 ;***  	-----------------------    K$6 = &setting;
 ;***  	-----------------------    U$7 = (int (*)[9])K$6;
-;***  	-----------------------    K$44 = &menu_func;
+;***  	-----------------------    K$42 = &menu_func;
 ;***  	-----------------------    U$4 = 0L;
 ;*** 37	-----------------------    int32_X = 0L;
 ;*** 38	-----------------------    int32_Y = 0L;
@@ -361,14 +361,14 @@ DW$21	.dwtag  DW_TAG_variable, DW_AT_name("int32_Y"), DW_AT_symbol_name("_int32_
 DW$22	.dwtag  DW_TAG_variable, DW_AT_name("int32_X"), DW_AT_symbol_name("_int32_X")
 	.dwattr DW$22, DW_AT_type(*DW$T$47)
 	.dwattr DW$22, DW_AT_location[DW_OP_breg20 -8]
-DW$23	.dwtag  DW_TAG_variable, DW_AT_name("K$44"), DW_AT_symbol_name("K$44")
+DW$23	.dwtag  DW_TAG_variable, DW_AT_name("K$42"), DW_AT_symbol_name("K$42")
 	.dwattr DW$23, DW_AT_type(*DW$T$35)
 	.dwattr DW$23, DW_AT_location[DW_OP_breg20 -4]
 DW$24	.dwtag  DW_TAG_variable, DW_AT_name("U$4"), DW_AT_symbol_name("U$4")
 	.dwattr DW$24, DW_AT_type(*DW$T$12)
 	.dwattr DW$24, DW_AT_location[DW_OP_breg20 -6]
-;* AR1   assigned to U$28
-DW$25	.dwtag  DW_TAG_variable, DW_AT_name("U$28"), DW_AT_symbol_name("U$28")
+;* AR1   assigned to U$27
+DW$25	.dwtag  DW_TAG_variable, DW_AT_name("U$27"), DW_AT_symbol_name("U$27")
 	.dwattr DW$25, DW_AT_type(*DW$T$44)
 	.dwattr DW$25, DW_AT_location[DW_OP_reg6]
 ;* AR3   assigned to K$6
@@ -394,15 +394,15 @@ DW$27	.dwtag  DW_TAG_variable, DW_AT_name("U$7"), DW_AT_symbol_name("U$7")
 L1:    
 DW$L$_menu$2$B:
 ;***	-----------------------g2:
-;*** 110	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g18;
+;*** 110	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g18;
 	.dwpsn	"menu.c",110,10
-        TBIT      @_GpioDataRegs+1,#14  ; |110| 
+        TBIT      @_GpioDataRegs+1,#15  ; |110| 
         BF        L9,TC                 ; |110| 
         ; branchcc occurs ; |110| 
 DW$L$_menu$2$E:
 DW$L$_menu$3$B:
 ;*** 113	-----------------------    VFDPrintf("SUB__OUT");
-;*** 114	-----------------------    DSP28x_usDelay(1999998uL);
+;*** 114	-----------------------    DSP28x_usDelay(2999998uL);
 ;*** 112	-----------------------    int32_Y = 0L;
 ;*** 116	-----------------------    goto g9;
 	.dwpsn	"menu.c",113,6
@@ -411,8 +411,8 @@ DW$L$_menu$3$B:
         LCR       #_VFDPrintf           ; |113| 
         ; call occurs [#_VFDPrintf] ; |113| 
 	.dwpsn	"menu.c",114,6
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |114| 
         ; call occurs [#_DSP28x_usDelay] ; |114| 
 	.dwpsn	"menu.c",112,6
@@ -468,7 +468,7 @@ DW$L$_menu$8$B:
 ;*** 66	-----------------------    U$4 = int32_X*45L;
 ;*** 66	-----------------------    U$7 = U$4+K$6;
 ;*** 66	-----------------------    VFDPrintf((char *)U$7);
-;*** 67	-----------------------    DSP28x_usDelay(1999998uL);
+;*** 67	-----------------------    DSP28x_usDelay(2999998uL);
 	.dwpsn	"menu.c",66,4
         MOVB      ACC,#45
         MOVL      XT,ACC                ; |66| 
@@ -483,8 +483,8 @@ DW$L$_menu$8$B:
         LCR       #_VFDPrintf           ; |66| 
         ; call occurs [#_VFDPrintf] ; |66| 
 	.dwpsn	"menu.c",67,4
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |67| 
         ; call occurs [#_DSP28x_usDelay] ; |67| 
 DW$L$_menu$8$E:
@@ -493,41 +493,41 @@ DW$L$_menu$9$B:
 ;***	-----------------------g9:
 ;***	-----------------------g9:
 ;*** 42	-----------------------    VFDPrintf((char *)U$7);
-;*** 43	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 45	-----------------------    if ( !(*(&GpioDataRegs+1)&0x20u) ) goto g6;
+;*** 43	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 45	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g6;
 	.dwpsn	"menu.c",42,3
         MOVL      *-SP[2],XAR2          ; |42| 
         LCR       #_VFDPrintf           ; |42| 
         ; call occurs [#_VFDPrintf] ; |42| 
 	.dwpsn	"menu.c",43,3
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |43| 
         ; call occurs [#_DSP28x_usDelay] ; |43| 
 	.dwpsn	"menu.c",45,3
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |45| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |45| 
         BF        L3,NTC                ; |45| 
         ; branchcc occurs ; |45| 
 DW$L$_menu$9$E:
 DW$L$_menu$10$B:
-;*** 58	-----------------------    if ( !(*(&GpioDataRegs+1)&0x100u) ) goto g4;
+;*** 58	-----------------------    if ( !(*&GpioDataRegs&0x8000u) ) goto g4;
 	.dwpsn	"menu.c",58,8
-        TBIT      @_GpioDataRegs+1,#8   ; |58| 
+        TBIT      @_GpioDataRegs,#15    ; |58| 
         BF        L2,NTC                ; |58| 
         ; branchcc occurs ; |58| 
 DW$L$_menu$10$E:
 DW$L$_menu$11$B:
-;*** 71	-----------------------    if ( *(&GpioDataRegs+1)&0x10u ) goto g9;
+;*** 71	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g9;
 	.dwpsn	"menu.c",71,8
-        TBIT      @_GpioDataRegs+1,#4   ; |71| 
+        TBIT      @_GpioDataRegs+1,#14  ; |71| 
         BF        L5,TC                 ; |71| 
         ; branchcc occurs ; |71| 
 DW$L$_menu$11$E:
 DW$L$_menu$12$B:
 ;*** 73	-----------------------    VFDPrintf("SUB___IN");
-;*** 74	-----------------------    DSP28x_usDelay(1999998uL);
-;***  	-----------------------    U$28 = int32_Y*9L+U$4+K$6;
+;*** 74	-----------------------    DSP28x_usDelay(2999998uL);
+;***  	-----------------------    U$27 = int32_Y*9L+U$4+K$6;
 ;***  	-----------------------    goto g18;
 	.dwpsn	"menu.c",73,4
         MOVL      XAR4,#FSL3            ; |73| 
@@ -535,8 +535,8 @@ DW$L$_menu$12$B:
         LCR       #_VFDPrintf           ; |73| 
         ; call occurs [#_VFDPrintf] ; |73| 
 	.dwpsn	"menu.c",74,4
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |74| 
         ; call occurs [#_DSP28x_usDelay] ; |74| 
         MOVL      XAR6,*-SP[10]
@@ -595,9 +595,9 @@ DW$L$_menu$16$E:
 L8:    
 DW$L$_menu$17$B:
 ;***	-----------------------g17:
-;*** 101	-----------------------    U$28 = int32_Y*9L+U$4+K$6;
-;*** 101	-----------------------    VFDPrintf((char *)U$28);
-;*** 102	-----------------------    DSP28x_usDelay(1999998uL);
+;*** 101	-----------------------    U$27 = int32_Y*9L+U$4+K$6;
+;*** 101	-----------------------    VFDPrintf((char *)U$27);
+;*** 102	-----------------------    DSP28x_usDelay(2999998uL);
 	.dwpsn	"menu.c",101,6
         MOVL      XAR6,*-SP[10]         ; |101| 
         MOVL      ACC,*-SP[10]
@@ -613,8 +613,8 @@ DW$L$_menu$17$B:
         LCR       #_VFDPrintf           ; |101| 
         ; call occurs [#_VFDPrintf] ; |101| 
 	.dwpsn	"menu.c",102,6
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |102| 
         ; call occurs [#_DSP28x_usDelay] ; |102| 
 DW$L$_menu$17$E:
@@ -622,40 +622,40 @@ L9:
 DW$L$_menu$18$B:
 ;***	-----------------------g18:
 ;***	-----------------------g18:
-;*** 78	-----------------------    VFDPrintf((char *)U$28);
-;*** 79	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 80	-----------------------    if ( !(*(&GpioDataRegs+1)&0x20u) ) goto g15;
+;*** 78	-----------------------    VFDPrintf((char *)U$27);
+;*** 79	-----------------------    DSP28x_usDelay(2999998uL);
+;*** 80	-----------------------    if ( !(*&GpioDataRegs&0x4000u) ) goto g15;
 	.dwpsn	"menu.c",78,5
         MOVL      *-SP[2],XAR1          ; |78| 
         LCR       #_VFDPrintf           ; |78| 
         ; call occurs [#_VFDPrintf] ; |78| 
 	.dwpsn	"menu.c",79,5
-        MOV       AL,#33918
-        MOV       AH,#30
+        MOV       AL,#50878
+        MOV       AH,#45
         LCR       #_DSP28x_usDelay      ; |79| 
         ; call occurs [#_DSP28x_usDelay] ; |79| 
 	.dwpsn	"menu.c",80,5
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |80| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |80| 
         BF        L7,NTC                ; |80| 
         ; branchcc occurs ; |80| 
 DW$L$_menu$18$E:
 DW$L$_menu$19$B:
-;*** 93	-----------------------    if ( !(*(&GpioDataRegs+1)&0x100u) ) goto g13;
+;*** 93	-----------------------    if ( !(*&GpioDataRegs&0x8000u) ) goto g13;
 	.dwpsn	"menu.c",93,10
-        TBIT      @_GpioDataRegs+1,#8   ; |93| 
+        TBIT      @_GpioDataRegs,#15    ; |93| 
         BF        L6,NTC                ; |93| 
         ; branchcc occurs ; |93| 
 DW$L$_menu$19$E:
 DW$L$_menu$20$B:
-;*** 105	-----------------------    if ( *(&GpioDataRegs+1)&0x10u ) goto g2;
+;*** 105	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
 	.dwpsn	"menu.c",105,10
-        TBIT      @_GpioDataRegs+1,#4   ; |105| 
+        TBIT      @_GpioDataRegs+1,#14  ; |105| 
         BF        L1,TC                 ; |105| 
         ; branchcc occurs ; |105| 
 DW$L$_menu$20$E:
 DW$L$_menu$21$B:
-;*** 107	-----------------------    (*K$44[5*int32_X+int32_Y])();
+;*** 107	-----------------------    (*K$42[5*int32_X+int32_Y])();
 ;*** 108	-----------------------    goto g18;
 	.dwpsn	"menu.c",107,6
         MOVL      ACC,*-SP[8]
@@ -686,7 +686,7 @@ DW$L$_menu$21$E:
 	.dwcfa	0xc0, 7
 
 DW$28	.dwtag  DW_TAG_loop
-	.dwattr DW$28, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\menu.asm:L5:1:1675599814")
+	.dwattr DW$28, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\menu.asm:L5:1:1689386888")
 	.dwattr DW$28, DW_AT_begin_file("menu.c")
 	.dwattr DW$28, DW_AT_begin_line(0x2a)
 	.dwattr DW$28, DW_AT_end_line(0x74)
@@ -722,7 +722,7 @@ DW$38	.dwtag  DW_TAG_loop_range
 	.dwattr DW$38, DW_AT_high_pc(DW$L$_menu$3$E)
 
 DW$39	.dwtag  DW_TAG_loop
-	.dwattr DW$39, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\menu.asm:L9:2:1675599814")
+	.dwattr DW$39, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\menu.asm:L9:2:1689386888")
 	.dwattr DW$39, DW_AT_begin_file("menu.c")
 	.dwattr DW$39, DW_AT_begin_line(0x4e)
 	.dwattr DW$39, DW_AT_end_line(0x6e)

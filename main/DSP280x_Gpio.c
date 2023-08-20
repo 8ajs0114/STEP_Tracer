@@ -25,41 +25,41 @@ void InitGpio(void)
 {
    EALLOW;
 /*
-//   IO0 	- MR OUT A¡¯
+//   IO0 	- S OUT L0 R7
 	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0;		dir	1			
-//   IO1 	- MR OUT A
+//   IO1 	- S OUT L1 R6
 	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0;		dir	1			  
-//   IO2 	- MR OUT B¡¯
+//   IO2 	- S OUT L2 R5
 	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;		dir	1
-//   IO3 	- MR OUT B
+//   IO3 	- S OUT L3 R4
 	GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0; 	dir 1
 	
-//   IO4 	- S OUT L0 R7
+//   IO4 	- S OUT L4 R3
 	GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0;		dir	1
-//   IO5 	- S OUT L1 R6
+//   IO5 	- S OUT L5 R2
 	GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0;		dir	1
-//   IO6 	- S OUT L2 R
+//   IO6 	- S OUT L6 R1
 	GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;		dir	1
-//   IO7 	- S OUT L3 R4
+//   IO7 	- S OUT L7 R0
 	GpioCtrlRegs.GPAMUX1.bit.GPIO7 = 0;		dir	1
 	
-//   IO8 	- S OUT L4 R3
+//   IO8 	- ML OUT A¡¯
 	GpioCtrlRegs.GPAMUX1.bit.GPIO8 = 0;		dir	1
-//   IO9 	- S OUT L5 R2
+//   IO9 	- ML OUT A 
 	GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 0;		dir	1
-//   IO10	  - S OUT L6 R1
+//   IO10	- ML OUT B¡¯
 	GpioCtrlRegs.GPAMUX1.bit.GPIO10 = 0;	dir	1
-//   IO11  - S OUT L7 R0
+//   IO11  	- ML OUT B 
 	GpioCtrlRegs.GPAMUX1.bit.GPIO11 = 0;	dir	1
 	
-//   IO12   - ML OUT A¡¯ 
+//   IO12   - LEFT LED 
 	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;	dir	1
-//   IO13   - ML OUT A
+//   IO13   - RIGHT LED
 	GpioCtrlRegs.GPAMUX1.bit.GPIO13 = 0;	dir	1
-//   IO14   - ML OUT B¡¯
-	GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;	dir	1
-//   IO15   - ML OUT B
-	GpioCtrlRegs.GPAMUX1.bit.GPIO15 = 0;	dir	1
+//   IO14   - SW_RIGHT
+	GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;	dir	0
+//   IO15   - SW_LEFT
+	GpioCtrlRegs.GPAMUX1.bit.GPIO15 = 0;	dir	0
 	
 //mux	0000 0000 / 0000 0000 / 0000 0000 / 0000 0000 */
 	GpioCtrlRegs.GPAMUX1.all = 0x00000000;
@@ -74,43 +74,43 @@ void InitGpio(void)
 //   IO19   - spi en(output io) --> led 0
 	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 0;	dir	1
 	
-//   IO20   - SW_DOWN   
-	GpioCtrlRegs.GPAMUX2.bit.GPIO20 = 0;	dir	0
-//   IO21   - SW_RIGHT
-	GpioCtrlRegs.GPAMUX2.bit.GPIO21 = 0;	dir	0
+//   IO20   - MR OUT A¡¯  
+	GpioCtrlRegs.GPAMUX2.bit.GPIO20 = 0;	dir	1
+//   IO21   - MR OUT A 
+	GpioCtrlRegs.GPAMUX2.bit.GPIO21 = 0;	dir	1
 //   IO22   - VFD_Data
 	GpioCtrlRegs.GPAMUX2.bit.GPIO22 = 0;	dir	1
 //   IO23   - VFD_RS
 	GpioCtrlRegs.GPAMUX2.bit.GPIO23 = 0;	dir	1
 	
-//   IO24   - SW_LEFT
-	GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0;	dir	0
-//   IO25   - LED L1
+//   IO24   - MR OUT B¡¯
+	GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0;	dir	1
+//   IO25   - MR OUT B
 	GpioCtrlRegs.GPAMUX2.bit.GPIO25 = 0;	dir	1
 //   IO26   - VFD_Clock
 	GpioCtrlRegs.GPAMUX2.bit.GPIO26 = 0;	dir	1
-//   IO27   - LED R1
+//   IO27   - BUZZER
 	GpioCtrlRegs.GPAMUX2.bit.GPIO27 = 0;	dir	1
 	
 //   IO28   - rxd User(LED_C2)
 	GpioCtrlRegs.GPAMUX2.bit.GPIO28 = 1;	dir	0
 //   IO29   - txd 
 	GpioCtrlRegs.GPAMUX2.bit.GPIO29 = 1;	dir	1
-//   IO30   - SW_UP
+//   IO30   - SW_DOWN
 	GpioCtrlRegs.GPAMUX2.bit.GPIO30 = 0;	dir	0
-//   IO31   - 
+//   IO31   - SW_UP
 	GpioCtrlRegs.GPAMUX2.bit.GPIO31 = 0;	dir	0
 	
-//mux	0000 0101 / 0000 0000 /  0000 0000 / 0001 0101/ */
+//mux	0000 0101 / 0000 0000 /  0000 0000 / 0001 0101 */
 	GpioCtrlRegs.GPAMUX2.all = 0x05000015;
 	
 
 /*
 //   IO32 - VFD_CE
 	GpioCtrlRegs.GPBMUX1.bit.GPIO32 = 0;	dir	1
-//   IO33 - LED L2
+//   IO33 - CENTER LED 
 	GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 0;	dir	1
-//   IO34 - LED R2
+//   IO34 - SLIDE_SWITCH
 	GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0;	dir	1
 //mux 	0000 0000 / 0000 0000 / 0000 0000 / 0000 0000/ */
 	GpioCtrlRegs.GPBMUX1.all = 0x0;
@@ -133,20 +133,20 @@ void InitGpio(void)
 
 	GpioCtrlRegs.GPADIR.bit.GPIO12 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO13 = 1;
-	GpioCtrlRegs.GPADIR.bit.GPIO14 = 1;
-	GpioCtrlRegs.GPADIR.bit.GPIO15 = 1;
+	GpioCtrlRegs.GPADIR.bit.GPIO14 = 0;
+	GpioCtrlRegs.GPADIR.bit.GPIO15 = 0;
 
 	GpioCtrlRegs.GPADIR.bit.GPIO16 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;
 	GpioCtrlRegs.GPADIR.bit.GPIO18 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO19 = 1;
 
-	GpioCtrlRegs.GPADIR.bit.GPIO20 = 0;
-	GpioCtrlRegs.GPADIR.bit.GPIO21 = 0;
+	GpioCtrlRegs.GPADIR.bit.GPIO20 = 1;
+	GpioCtrlRegs.GPADIR.bit.GPIO21 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO22 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO23 = 1;
 
-	GpioCtrlRegs.GPADIR.bit.GPIO24 = 0;
+	GpioCtrlRegs.GPADIR.bit.GPIO24 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO25 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO26 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO27 = 1;
@@ -155,8 +155,8 @@ void InitGpio(void)
 	GpioCtrlRegs.GPADIR.bit.GPIO29 = 1;
 	GpioCtrlRegs.GPADIR.bit.GPIO30 = 0;
 	GpioCtrlRegs.GPADIR.bit.GPIO31 = 0;
-*/	// 0010 1110 1100 1101 1111 1111 1111 1111
-	GpioCtrlRegs.GPADIR.all = 0x2ecdffff;
+*/	// 0010 1111 1111 1101 0011 1111 1111 1111
+	GpioCtrlRegs.GPADIR.all = 0x2ffd3fff;
 
 	
 
@@ -164,7 +164,7 @@ void InitGpio(void)
 	GpioCtrlRegs.GPBDIR.bit.GPIO32 = 1;
 	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 1;
 	GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;
-*/	//0111
+*/
 	GpioCtrlRegs.GPBDIR.all = 0x07;
 	
 

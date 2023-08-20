@@ -34,15 +34,15 @@ char setting[X][Y][WORD_LENGTH]={ "Sensor__",	"Max_Min_",	"Val_4095",	"Val_0127"
 				    
 void menu(void)
 {
-	int32 int32_X=0;
-	int32 int32_Y=0;
+	int32 int32_X = 0;
+	int32 int32_Y = 0;
 
 	while(1)
 	{ 	
 		VFDPrintf((char*)setting[int32_X][int32_Y]);
-		DELAY_US(100000);
+		DELAY_US(150000);
 		
-		if (SR == OFF)
+		if (!SR)
 		{
 			int32_X++;
 			
@@ -51,11 +51,11 @@ void menu(void)
 				int32_X = 0;
 			}
 			VFDPrintf((char*)setting[int32_X][int32_Y]);
-			DELAY_US(100000);	
+			DELAY_US(150000);	
 			
 		}
 
-		else if (SL == OFF)
+		else if (!SL)
 		{
 			int32_X--;
 
@@ -64,20 +64,20 @@ void menu(void)
 				int32_X = (X-1);
 			}
 			VFDPrintf((char*)setting[int32_X][int32_Y]);
-			DELAY_US(100000);
+			DELAY_US(150000);
 			
 		}
 
-		else if (SD == OFF)
+		else if (!SD)
 		{
 			VFDPrintf("SUB___IN");
-			DELAY_US(100000);
+			DELAY_US(150000);
 			
 			while (1)
 			{		
 				VFDPrintf((char*)setting[int32_X][int32_Y]);
-				DELAY_US(100000);	
-				if (SR == OFF)
+				DELAY_US(150000);	
+				if (!SR)
 				{
 					int32_Y++;			
 
@@ -86,11 +86,11 @@ void menu(void)
 						int32_Y= 0;
 					}
 					VFDPrintf((char*)setting[int32_X][int32_Y]);
-					DELAY_US(100000);
+					DELAY_US(150000);
 					
 				}
 
-				else if (SL == OFF)
+				else if (!SL)
 				{
 					int32_Y--;
 
@@ -99,19 +99,19 @@ void menu(void)
 						int32_Y = (Y-1);
 					}
 					VFDPrintf((char*)setting[int32_X][int32_Y]);
-					DELAY_US(100000);					
+					DELAY_US(150000);					
 				}
 
-				else if(SD==OFF) 
+				else if(!SD) 
 				{
 					menu_func[int32_X][int32_Y]();
 				}
 
-				else if (SU == OFF)
+				else if (!SU)
 				{	
 					int32_Y = 0;
 					VFDPrintf("SUB__OUT");
-					DELAY_US(100000);
+					DELAY_US(150000);
 					
 					break;
 				}

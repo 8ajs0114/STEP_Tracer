@@ -121,24 +121,20 @@ void if_cross(bit_field_flag_t *p_Flag, MOTORCTRL *p_LM,  MOTORCTRL *p_CM,  MOTO
 	if(p_CM->iq15Cross_Check_Dist <= _IQ15(CROSS_ERROR_DIST) && p_Flag->turnmark_flag == ON && p_Flag->cross_flag == ON) 
 	{	
 		p_Flag->turnmark_flag = OFF;
-		R1_LED = OFF;
-		L1_LED = OFF;
+		Right_LED = OFF;
+		Left_LED = OFF;
 	}
 
 	else if(p_CM->iq15Cross_Check_Dist >= _IQ15(CROSS_CHECK_DIST) && p_Flag->cross_flag == ON)
 	{
 		p_Flag->cross_flag = OFF;
 		g_int32_cross_cnt++;
-		L2_LED = OFF;
-		R2_LED = OFF;
 	}
 
 	else if(MIDDLE_WING_ON && p_Flag->cross_flag == OFF)
 	{				
 		p_RM->iq15Cross_Check_Dist = _IQ15(0.0);
 		p_LM->iq15Cross_Check_Dist = _IQ15(0.0);			
-		L2_LED = ON;
-		R2_LED = ON;
 		p_Flag->cross_flag = ON;
 	}
 
@@ -163,9 +159,9 @@ void if_turnmark(bit_field_flag_t *p_Flag, MOTORCTRL *p_LM,  MOTORCTRL *p_CM,  M
 		g_int32_turnmark_cnt++;
 
 		if(p_Flag->speed_up_flag == OFF)
-			(p_info + g_int32_turnmark_cnt)->int32turnmark = R1_LED ? RIGHT_MARK : LEFT_MARK;
+			(p_info + g_int32_turnmark_cnt)->int32turnmark = Right_LED ? RIGHT_MARK : LEFT_MARK;
 		else;
-			//(p_info + g_int32_turnmark_cnt)->int32fastmark = R1_LED ? RIGHT_MARK : LEFT_MARK;
+			//(p_info + g_int32_turnmark_cnt)->int32fastmark = Right_LED ? RIGHT_MARK : LEFT_MARK;
 
 		// 2nd run acceleration
 		if(p_Flag->speed_up_flag == OFF || ((p_info + g_int32_turnmark_cnt)->int32turn_way != STRAIGHT))
@@ -176,14 +172,14 @@ void if_turnmark(bit_field_flag_t *p_Flag, MOTORCTRL *p_LM,  MOTORCTRL *p_CM,  M
 
 		else;
 		
-		R1_LED = OFF;
-		L1_LED = OFF;
+		Right_LED = OFF;
+		Left_LED = OFF;
 	}
 
 	else if((RIGHT_WING_ON || LEFT_WING_ON) && p_Flag->cross_flag == OFF && p_Flag->turnmark_flag == OFF && p_Flag->start_flag == OFF)
 	{	
 		//켜진 날개에 따라 좌 우 턴 구 분  
-		RIGHT_WING_ON ? (R1_LED = ON) : (L1_LED = ON);
+		RIGHT_WING_ON ? (Right_LED = ON) : (Left_LED = ON);
 		
 		(p_info + g_int32_turnmark_cnt)->iq15_temp_R_dist = (p_RM->iq15GoneDist);
 		(p_info + g_int32_turnmark_cnt)->iq15_temp_L_dist = (p_LM->iq15GoneDist);
@@ -246,11 +242,9 @@ void if_start_end(bit_field_flag_t *p_Flag, MOTORCTRL *p_LM,  MOTORCTRL *p_CM,  
 
 		p_Flag->move_state = OFF;
 
-		L1_LED = OFF;
-		L2_LED = OFF;
-		R1_LED = OFF;
-		R2_LED = OFF;
-
+		Left_LED = OFF;
+		Right_LED = OFF;
+	
 		VFDPrintf("RACE_END");
 
 		move_to_end( 240.0, 0.0, g_u32_END_ACC_targetval);
@@ -300,10 +294,8 @@ void if_lineout(bit_field_flag_t* p_Flag)
 		// 동작상태 초기화 
 		p_Flag->move_state = OFF;
 		
-		L1_LED = OFF;
-		L2_LED = OFF;
-		R1_LED = OFF;
-		R2_LED = OFF;
+		Left_LED = OFF;
+		Right_LED= OFF;
 		
 		VFDPrintf("Line_Out");
 		move_to_end( 240.0, 0.0, g_u32_END_ACC_targetval);

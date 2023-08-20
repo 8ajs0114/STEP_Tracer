@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sun Feb 05 21:23:32 2023                 *
+;* Date/Time created: Sat Jul 15 11:08:06 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -48,7 +48,7 @@ _InitGpio:
 ;*** 65	-----------------------    GpioCtrlRegs.GPAMUX1.all = 0uL;
 ;*** 105	-----------------------    GpioCtrlRegs.GPAMUX2.all = 0x5000015uL;
 ;*** 116	-----------------------    GpioCtrlRegs.GPBMUX1.all = 0uL;
-;*** 159	-----------------------    GpioCtrlRegs.GPADIR.all = 0x2ecdffffuL;
+;*** 159	-----------------------    GpioCtrlRegs.GPADIR.all = 0x2ffd3fffuL;
 ;*** 168	-----------------------    GpioCtrlRegs.GPBDIR.all = 7uL;
 ;*** 183	-----------------------    GpioCtrlRegs.GPAPUD.all = 0xcccfffffuL;
 ;*** 184	-----------------------    GpioCtrlRegs.GPBPUD.all = 0xffffffffuL;
@@ -74,14 +74,15 @@ _InitGpio:
         MOVB      ACC,#0
         MOVL      @_GpioCtrlRegs+22,ACC ; |116| 
 	.dwpsn	"DSP280x_Gpio.c",159,2
-        MOV       PH,#11981
-        MOV       PL,#65535
+        MOV       PH,#12285
+        MOV       PL,#16383
         MOVL      @_GpioCtrlRegs+10,P   ; |159| 
 	.dwpsn	"DSP280x_Gpio.c",168,2
         MOVB      ACC,#7
         MOVL      @_GpioCtrlRegs+26,ACC ; |168| 
 	.dwpsn	"DSP280x_Gpio.c",183,2
         MOV       PH,#52431
+        MOV       PL,#65535
         MOVL      @_GpioCtrlRegs+12,P   ; |183| 
 	.dwpsn	"DSP280x_Gpio.c",184,2
         MOV       PH,#65535

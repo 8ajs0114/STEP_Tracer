@@ -70,10 +70,8 @@ void Variable_Init( void )
 	g_u32_Max_velocity = 4000;
 	g_u32_Straight_Accelration = 3000;
 
-	L1_LED = OFF;
-	R1_LED = OFF;
-	L2_LED = OFF;
-	R2_LED = OFF;
+	Left_LED = OFF;
+	Right_LED = OFF;
 
 	g_Flag.motor = OFF;
 	
@@ -84,7 +82,7 @@ void main(void)
 	System_Init();
 	Variable_Init();
 	sen_vari_init(g_sen);
-	maxmin_read_rom();
+	//maxmin_read_rom();
 	menu();
 }
 

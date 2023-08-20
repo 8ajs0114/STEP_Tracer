@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sun Feb 05 21:23:35 2023                 *
+;* Date/Time created: Sat Jul 15 11:08:10 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -16,34 +16,34 @@ DW$CU	.dwtag  DW_TAG_compile_unit
 	.align	1
 	.field  	-IR_1,16
 	.field  	_right_step+0,32
-	.field  	10,32			; _right_step[0] @ 0
-	.field  	9,32			; _right_step[1] @ 32
-	.field  	5,32			; _right_step[2] @ 64
-	.field  	6,32			; _right_step[3] @ 96
+	.field  	35651584,32			; _right_step[0] @ 0
+	.field  	34603008,32			; _right_step[1] @ 32
+	.field  	17825792,32			; _right_step[2] @ 64
+	.field  	18874368,32			; _right_step[3] @ 96
 IR_1:	.set	8
 
 	.sect	".cinit"
 	.align	1
 	.field  	-IR_2,16
 	.field  	_left_step+0,32
-	.field  	36864,32			; _left_step[0] @ 0
-	.field  	40960,32			; _left_step[1] @ 32
-	.field  	24576,32			; _left_step[2] @ 64
-	.field  	20480,32			; _left_step[3] @ 96
+	.field  	2304,32			; _left_step[0] @ 0
+	.field  	2560,32			; _left_step[1] @ 32
+	.field  	1536,32			; _left_step[2] @ 64
+	.field  	1280,32			; _left_step[3] @ 96
 IR_2:	.set	8
 
 	.sect	".cinit"
 	.align	1
 	.field  	-IR_3,16
 	.field  	_sen_arr+0,32
-	.field  	4,32			; _sen_arr[0] @ 0
-	.field  	5,32			; _sen_arr[1] @ 32
-	.field  	6,32			; _sen_arr[2] @ 64
-	.field  	7,32			; _sen_arr[3] @ 96
-	.field  	8,32			; _sen_arr[4] @ 128
-	.field  	9,32			; _sen_arr[5] @ 160
-	.field  	10,32			; _sen_arr[6] @ 192
-	.field  	11,32			; _sen_arr[7] @ 224
+	.field  	0,32			; _sen_arr[0] @ 0
+	.field  	1,32			; _sen_arr[1] @ 32
+	.field  	2,32			; _sen_arr[2] @ 64
+	.field  	3,32			; _sen_arr[3] @ 96
+	.field  	4,32			; _sen_arr[4] @ 128
+	.field  	5,32			; _sen_arr[5] @ 160
+	.field  	6,32			; _sen_arr[6] @ 192
+	.field  	7,32			; _sen_arr[7] @ 224
 IR_3:	.set	16
 
 	.sect	".cinit"
@@ -325,8 +325,8 @@ DW$66	.dwtag  DW_TAG_variable, DW_AT_name("g_sen"), DW_AT_symbol_name("_g_sen")
 	.dwattr DW$66, DW_AT_type(*DW$T$145)
 	.dwattr DW$66, DW_AT_declaration(0x01)
 	.dwattr DW$66, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI02410 C:\Users\JS\AppData\Local\Temp\TI0244 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI0242 --template_info_file C:\Users\JS\AppData\Local\Temp\TI0246 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI34410 C:\Users\JS\AppData\Local\Temp\TI3444 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI3442 --template_info_file C:\Users\JS\AppData\Local\Temp\TI3446 --object_file sensor.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_sen_vari_init
 
@@ -655,7 +655,7 @@ DW$L$_sen_vari_init$2$E:
         ; return occurs
 
 DW$72	.dwtag  DW_TAG_loop
-	.dwattr DW$72, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L1:1:1675599815")
+	.dwattr DW$72, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L1:1:1689386890")
 	.dwattr DW$72, DW_AT_begin_file("sensor.c")
 	.dwattr DW$72, DW_AT_begin_line(0x142)
 	.dwattr DW$72, DW_AT_end_line(0x143)
@@ -1512,7 +1512,7 @@ DW$L$_Sensor_setting$2$B:
         MOVL      *+XAR4[4],ACC         ; |229| 
 	.dwpsn	"sensor.c",230,3
         MOVL      *+XAR4[2],ACC         ; |230| 
-	.dwpsn	"sensor.c",227,15
+	.dwpsn	"sensor.c",227,21
         INC       @_i                   ; |227| 
         MOV       AL,@_i                ; |227| 
         CMPB      AL,#16                ; |227| 
@@ -1572,17 +1572,17 @@ DW$L$_Sensor_setting$7$E:
 L25:    
 DW$L$_Sensor_setting$8$B:
 ;***	-----------------------g8:
-;*** 253	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g4;
+;*** 253	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g4;
 	.dwpsn	"sensor.c",253,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |253| 
+        TBIT      @_GpioDataRegs+1,#15  ; |253| 
         BF        L23,TC                ; |253| 
         ; branchcc occurs ; |253| 
 DW$L$_Sensor_setting$8$E:
 ;*** 255	-----------------------    VFDPrintf("Comp_Max");
 ;*** 256	-----------------------    Delay(500000uL);
 ;*** 263	-----------------------    VFDPrintf("Set_Min_");
-;*** 264	-----------------------    DSP28x_usDelay(0x1312cfeuL);
+;*** 264	-----------------------    DSP28x_usDelay(0x1c9c37euL);
 ;***  	-----------------------    #pragma LOOP_FLAGS(4096u)
 ;*** 257	-----------------------    sensor_setting = 0;
 	.dwpsn	"sensor.c",255,4
@@ -1600,8 +1600,8 @@ DW$L$_Sensor_setting$8$E:
         LCR       #_VFDPrintf           ; |263| 
         ; call occurs [#_VFDPrintf] ; |263| 
 	.dwpsn	"sensor.c",264,2
-        MOV       AL,#11518
-        MOV       AH,#305
+        MOV       AL,#50046
+        MOV       AH,#457
         LCR       #_DSP28x_usDelay      ; |264| 
         ; call occurs [#_DSP28x_usDelay] ; |264| 
 	.dwpsn	"sensor.c",257,4
@@ -1649,10 +1649,10 @@ DW$L$_Sensor_setting$13$E:
 L28:    
 DW$L$_Sensor_setting$14$B:
 ;***	-----------------------g14:
-;*** 284	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g10;
+;*** 284	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g10;
 	.dwpsn	"sensor.c",284,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |284| 
+        TBIT      @_GpioDataRegs+1,#15  ; |284| 
         BF        L26,TC                ; |284| 
         ; branchcc occurs ; |284| 
 DW$L$_Sensor_setting$14$E:
@@ -1742,7 +1742,7 @@ DW$L$_Sensor_setting$16$E:
         ; return occurs
 
 DW$95	.dwtag  DW_TAG_loop
-	.dwattr DW$95, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L29:1:1675599815")
+	.dwattr DW$95, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L29:1:1689386890")
 	.dwattr DW$95, DW_AT_begin_file("sensor.c")
 	.dwattr DW$95, DW_AT_begin_line(0x127)
 	.dwattr DW$95, DW_AT_end_line(0x12b)
@@ -1753,7 +1753,7 @@ DW$96	.dwtag  DW_TAG_loop_range
 
 
 DW$97	.dwtag  DW_TAG_loop
-	.dwattr DW$97, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L26:1:1675599815")
+	.dwattr DW$97, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L26:1:1689386890")
 	.dwattr DW$97, DW_AT_begin_file("sensor.c")
 	.dwattr DW$97, DW_AT_begin_line(0x10a)
 	.dwattr DW$97, DW_AT_end_line(0x124)
@@ -1776,7 +1776,7 @@ DW$102	.dwtag  DW_TAG_loop_range
 
 
 DW$103	.dwtag  DW_TAG_loop
-	.dwattr DW$103, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L23:1:1675599815")
+	.dwattr DW$103, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L23:1:1689386890")
 	.dwattr DW$103, DW_AT_begin_file("sensor.c")
 	.dwattr DW$103, DW_AT_begin_line(0xeb)
 	.dwattr DW$103, DW_AT_end_line(0x103)
@@ -1799,7 +1799,7 @@ DW$108	.dwtag  DW_TAG_loop_range
 
 
 DW$109	.dwtag  DW_TAG_loop
-	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L22:1:1675599815")
+	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\sensor.asm:L22:1:1689386890")
 	.dwattr DW$109, DW_AT_begin_file("sensor.c")
 	.dwattr DW$109, DW_AT_begin_line(0xe3)
 	.dwattr DW$109, DW_AT_end_line(0xe7)
@@ -2579,7 +2579,7 @@ L40:
         ; branchcc occurs ; |193| 
 ;*** 195	-----------------------    Motor_CalBaseMotionValue(K$28);
 ;*** 196	-----------------------    ++g_u32_L_index;
-;*** 197	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xffff0fffuL|(unsigned long)left_step[(g_u32_L_index&3uL)];
+;*** 197	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xfffff0ffuL|(unsigned long)left_step[(g_u32_L_index&3uL)];
 ;*** 198	-----------------------    Motor_ON(K$28);
 	.dwpsn	"sensor.c",195,8
         MOVL      XAR4,XAR3             ; |195| 
@@ -2598,7 +2598,7 @@ L40:
         ADDL      XAR4,ACC
         MOVW      DP,#_GpioDataRegs
         MOVL      ACC,@_GpioDataRegs    ; |197| 
-        AND       AL,#4095              ; |197| 
+        AND       AL,#61695             ; |197| 
         OR        AL,*+XAR4[0]          ; |197| 
         OR        AH,*+XAR4[1]          ; |197| 
         MOVL      @_GpioDataRegs,ACC    ; |197| 
@@ -2625,7 +2625,7 @@ L41:
         ; branchcc occurs ; |203| 
 ;*** 205	-----------------------    Motor_CalBaseMotionValue(K$39);
 ;*** 206	-----------------------    ++g_u32_R_index;
-;*** 207	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xfffffff0uL|(unsigned long)right_step[(g_u32_R_index&3uL)];
+;*** 207	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xfccfffffuL|(unsigned long)right_step[(g_u32_R_index&3uL)];
 ;*** 208	-----------------------    Motor_ON(K$39);
 ;*** 208	-----------------------    goto g20;
 	.dwpsn	"sensor.c",205,4
@@ -2645,7 +2645,7 @@ L41:
         ADDL      XAR4,ACC
         MOVW      DP,#_GpioDataRegs
         MOVL      ACC,@_GpioDataRegs    ; |207| 
-        AND       AL,#65520             ; |207| 
+        AND       AH,#64719             ; |207| 
         OR        AL,*+XAR4[0]          ; |207| 
         OR        AH,*+XAR4[1]          ; |207| 
         MOVL      @_GpioDataRegs,ACC    ; |207| 
@@ -2657,10 +2657,11 @@ L41:
         ; branch occurs ; |208| 
 L42:    
 ;***	-----------------------g19:
-;*** 214	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xffff0ff0uL;
+;*** 214	-----------------------    GpioDataRegs.GPADAT.all = GpioDataRegs.GPADAT.all&0xfccff0ffuL;
 	.dwpsn	"sensor.c",214,7
         MOVW      DP,#_GpioDataRegs
-        AND       @_GpioDataRegs,#4080  ; |214| 
+        AND       @_GpioDataRegs,#61695 ; |214| 
+        AND       @_GpioDataRegs+1,#64719 ; |214| 
 L43:    
 ;***	-----------------------g20:
 ;*** 216	-----------------------    if ( !(*&g_Flag&0x40u) ) goto g22;

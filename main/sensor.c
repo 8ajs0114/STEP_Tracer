@@ -17,33 +17,33 @@
 #include "Main.h"
 #include "Sensor.h"
 
-//A'=12, A=13, B'=14, B=15 //->A'B->BA->AB'->B'A' //reverse time cycle
-//BB'AA' 0000 0000 0000
+//A'=08, A=09, B'=10, B=11 //->A'B->BA->AB'->B'A' //reverse time cycle
+//0000 BB'AA' 0000 0000
 volatile int32 left_step[] = 
 {
-	0x9000, 0xa000, 0x6000, 0x5000	//2step
+	0x0900, 0x0a00, 0x0600, 0x0500	//2step
 };
 
-//A'=0, A=1, B'=2, B=3 //->AB->BA'->A'B'->B'A // time cycle   
-//0000 0000 0000 BB'AA'
+//A'=20, A=21, B'=24, B=25 //->AB->BA'->A'B'->B'A // time cycle   
+//00BB' 00AA' 0000 0000 0000 0000 0000
 volatile int32 right_step[] = 
 { 
-	0x000a, 0x0009, 0x0005, 0x0006	//2step
+	0x2200000, 0x2100000, 0x1100000, 0x1200000	//2step
 };
 
 typedef volatile enum //enum : make original value ,volatile : changable
 {
 	#if 1
-	SEN0 = 4,
-	SEN1 = 5,
-	SEN2 = 6,
-	SEN3 = 7,
-	SEN4 = 8,
-	SEN5 = 9,
-	SEN6 = 10,
-	SEN7  = 11,
-	SEN_NUM = 8,//On right side of it(++8)
-	ADC_NUM = 16
+	SEN0 	= 	0,
+	SEN1 	= 	1,
+	SEN2 	= 	2,
+	SEN3 	= 	3,
+	SEN4 	= 	4,
+	SEN5 	= 	5,
+	SEN6 	= 	6,
+	SEN7 	= 	7,
+	SEN_NUM 	= 	8,//On right side of it(++8)
+	ADC_NUM 	= 	16
 	
 	#endif	
 }sensor_num;
@@ -224,7 +224,7 @@ void Sensor_setting(void) // 받은값 중에 가장 큰 값을 MAX, 가장 작은 값을 MIN 으
 	StartCpuTimer0();
 	sen_vari_init(g_sen);
 
-	for(i=0;i<16;i++)
+	for(i = 0; i < 16; i++)
 	{
 		g_sen[i].iq15_4095_max_value=_IQ(0.0);
 		g_sen[i].iq15_4095_min_value=_IQ(0.0);
@@ -250,7 +250,7 @@ void Sensor_setting(void) // 받은값 중에 가장 큰 값을 MAX, 가장 작은 값을 MIN 으
 		if( sensor_setting > ADC_NUM ) 	
 			sensor_setting = 0;
 		
-		if(SU==0)
+		if(!SU)
 		{
 			VFDPrintf("Comp_Max");
 			Delay(500000);
@@ -261,7 +261,7 @@ void Sensor_setting(void) // 받은값 중에 가장 큰 값을 MAX, 가장 작은 값을 MIN 으
 	sensor_setting = 0;
 	
 	VFDPrintf("Set_Min_");
-	DELAY_US(1000000);
+	DELAY_US(1500000);
 
 	while( 1 )
 	{
@@ -281,7 +281,7 @@ void Sensor_setting(void) // 받은값 중에 가장 큰 값을 MAX, 가장 작은 값을 MIN 으
 		if( sensor_setting > ADC_NUM ) 	
 			sensor_setting = 0;
 
-		if(SU==0)
+		if(!SU)
 		{
 			VFDPrintf("Comp_Min_");
 			//TxPrintf("Warning");

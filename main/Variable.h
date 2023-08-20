@@ -124,19 +124,17 @@ typedef enum
 // MENU_ARRAY_CONST
 #define 	X 				3
 #define 	Y 				5
-#define 	WORD_LENGTH 	9
+#define 	WORD_LENGTH 		9
 
 // SWITCH_CONST
-#define 	SR 				GpioDataRegs.GPADAT.bit.GPIO21
-#define 	SL 				GpioDataRegs.GPADAT.bit.GPIO24
-#define 	SU 				GpioDataRegs.GPADAT.bit.GPIO30
-#define 	SD 				GpioDataRegs.GPADAT.bit.GPIO20
+#define 	SR 				GpioDataRegs.GPADAT.bit.GPIO14
+#define 	SL 				GpioDataRegs.GPADAT.bit.GPIO15
+#define 	SU 				GpioDataRegs.GPADAT.bit.GPIO31
+#define 	SD 				GpioDataRegs.GPADAT.bit.GPIO30
 
 // LED_CONST
-#define	L1_LED			GpioDataRegs.GPADAT.bit.GPIO25//red
-#define	R1_LED 			GpioDataRegs.GPBDAT.bit.GPIO34//blue
-#define	L2_LED 			GpioDataRegs.GPBDAT.bit.GPIO33//yellow
-#define 	R2_LED 			GpioDataRegs.GPADAT.bit.GPIO27//green
+#define	Left_LED			GpioDataRegs.GPADAT.bit.GPIO12//red
+#define	Right_LED 			GpioDataRegs.GPADAT.bit.GPIO13//blue
 
 // MOTOR_STATE_CONST
 #define 	LEFT_ENABLE		0xfc00 //1111 1100 0000 0000	
@@ -144,9 +142,9 @@ typedef enum
 #define 	MIDDLE_ENLE		0X03C0 //0000 0011 1100 0000	
 #define 	STATE_CENTER	9
 
-#define	R_MOTOR		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xfffffff0 ) | right_step[g_u32_R_index & 0x3]//0,1,2,3
-#define 	L_MOTOR 		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xffff0fff ) | left_step[g_u32_L_index & 0x3]//12,13,14,15
-#define 	MOTOR_STOP 	GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xffff0ff0 )
+#define	R_MOTOR		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xfccfffff ) | right_step[g_u32_R_index & 0x3]//20, 21, 24, 25
+#define 	L_MOTOR 		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xfffff0ff ) | left_step[g_u32_L_index & 0x3]//08, 09, 10, 11
+#define 	MOTOR_STOP 	GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xfccff0ff )
 
 #define 	POS_END 		_IQ7(16000)
 

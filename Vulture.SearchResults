@@ -1,4 +1,4 @@
----- left_step Matches (2 in 2 files) ----
-
-Sensor.c (main):volatile int32 left_step[] = 
-Variable.h (main):#define 	L_MOTOR 		GpioDataRegs.GPADAT.all = ( GpioDataRegs.GPADAT.all & 0xffff0fff ) | left_step[g_u32_L_index & 0x3]//12,13,14,15
+---- g_f32_timer Matches (3 in 3 files) ----
+Motor.c (main):	g_f32_timer = g_f32_timer_cnt * (float32)0.000025; 
+Search.c (main):			VFDPrintf("%2.3lf%",g_f32_timer);
+Variable.h (main):						 g_f32_timer;

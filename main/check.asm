@@ -1,6 +1,6 @@
 ;***************************************************************
 ;* TMS320C2000 C/C++ Codegen                         PC v4.1.3 *
-;* Date/Time created: Sun Feb 05 21:23:36 2023                 *
+;* Date/Time created: Sat Jul 15 11:08:11 2023                 *
 ;***************************************************************
 	.compiler_opts --mem_model:code=flat --mem_model:data=large --silicon_version=28 
 FP	.set	XAR2
@@ -122,8 +122,8 @@ DW$34	.dwtag  DW_TAG_variable, DW_AT_name("search_info"), DW_AT_symbol_name("_se
 	.dwattr DW$34, DW_AT_type(*DW$T$81)
 	.dwattr DW$34, DW_AT_declaration(0x01)
 	.dwattr DW$34, DW_AT_external(0x01)
-;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI76410 C:\Users\JS\AppData\Local\Temp\TI7644 
-;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI7642 --template_info_file C:\Users\JS\AppData\Local\Temp\TI7646 --object_file check.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
+;	..\Compiler\bin\opt2000.exe C:\Users\JS\AppData\Local\Temp\TI79210 C:\Users\JS\AppData\Local\Temp\TI7924 
+;	..\Compiler\bin\ac2000.exe --keep_unneeded_types -D_INLINE -DLARGE_MODEL -I..\include --version=28 --keep_unneeded_types --mem_model:code=flat --mem_model:data=large -m --i_output_file C:\Users\JS\AppData\Local\Temp\TI7922 --template_info_file C:\Users\JS\AppData\Local\Temp\TI7926 --object_file check.obj --embed_opts 10 --call_assumptions=0 --mem_model:code=flat --mem_model:data=large --opt_for_speed --opt_level=3 --optimizer_comments --optimizer_interlist --program_level_compile --silicon_version=28 
 	.sect	".text"
 	.global	_turn_info_check
 
@@ -184,10 +184,10 @@ DW$36	.dwtag  DW_TAG_variable, DW_AT_name("K$1"), DW_AT_symbol_name("K$1")
 L1:    
 DW$L$_turn_info_check$2$B:
 ;***	-----------------------g2:
-;*** 261	-----------------------    if ( *(&GpioDataRegs+1)&0x20u ) goto g5;
+;*** 261	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g5;
 	.dwpsn	"check.c",261,3
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |261| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |261| 
         BF        L2,TC                 ; |261| 
         ; branchcc occurs ; |261| 
 DW$L$_turn_info_check$2$E:
@@ -216,9 +216,9 @@ DW$L$_turn_info_check$4$E:
 L2:    
 DW$L$_turn_info_check$5$B:
 ;***	-----------------------g5:
-;*** 269	-----------------------    if ( *(&GpioDataRegs+1)&0x100u ) goto g7;
+;*** 269	-----------------------    if ( *&GpioDataRegs&0x8000u ) goto g7;
 	.dwpsn	"check.c",269,8
-        TBIT      @_GpioDataRegs+1,#8   ; |269| 
+        TBIT      @_GpioDataRegs,#15    ; |269| 
         BF        L3,TC                 ; |269| 
         ; branchcc occurs ; |269| 
 DW$L$_turn_info_check$5$E:
@@ -233,7 +233,7 @@ DW$L$_turn_info_check$7$B:
 ;***	-----------------------g7:
 ;*** 279	-----------------------    VFDPrintf("%4ld%04x", i, (unsigned)(K$1[(long)i]).int32turn_way);
 ;*** 280	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 285	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
+;*** 285	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
 ;***  	-----------------------    return;
 	.dwpsn	"check.c",279,3
         MOVL      XAR4,#FSL1            ; |279| 
@@ -257,7 +257,7 @@ DW$L$_turn_info_check$7$B:
         ; call occurs [#_DSP28x_usDelay] ; |280| 
 	.dwpsn	"check.c",285,4
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |285| 
+        TBIT      @_GpioDataRegs+1,#15  ; |285| 
         BF        L1,TC                 ; |285| 
         ; branchcc occurs ; |285| 
 DW$L$_turn_info_check$7$E:
@@ -271,7 +271,7 @@ DW$L$_turn_info_check$7$E:
         ; return occurs
 
 DW$37	.dwtag  DW_TAG_loop
-	.dwattr DW$37, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L1:1:1675599816")
+	.dwattr DW$37, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L1:1:1689386891")
 	.dwattr DW$37, DW_AT_begin_file("check.c")
 	.dwattr DW$37, DW_AT_begin_line(0x102)
 	.dwattr DW$37, DW_AT_end_line(0x11e)
@@ -332,7 +332,7 @@ DW$44	.dwtag  DW_TAG_subprogram, DW_AT_name("sensor_check_4095"), DW_AT_symbol_n
 _sensor_check_4095:
 ;*** 35	-----------------------    *(&CpuTimer0Regs+4L) &= 0xffefu;
 ;***  	-----------------------    #pragma LOOP_FLAGS(5120u)
-;***  	-----------------------    K$23 = &g_sen[0];
+;***  	-----------------------    K$22 = &g_sen[0];
 ;*** 33	-----------------------    j = 0L;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
@@ -349,8 +349,8 @@ _sensor_check_4095:
 DW$45	.dwtag  DW_TAG_variable, DW_AT_name("j"), DW_AT_symbol_name("_j")
 	.dwattr DW$45, DW_AT_type(*DW$T$26)
 	.dwattr DW$45, DW_AT_location[DW_OP_reg6]
-;* AR3   assigned to K$23
-DW$46	.dwtag  DW_TAG_variable, DW_AT_name("K$23"), DW_AT_symbol_name("K$23")
+;* AR3   assigned to K$22
+DW$46	.dwtag  DW_TAG_variable, DW_AT_name("K$22"), DW_AT_symbol_name("K$22")
 	.dwattr DW$46, DW_AT_type(*DW$T$80)
 	.dwattr DW$46, DW_AT_location[DW_OP_reg10]
 	.dwpsn	"check.c",35,2
@@ -362,10 +362,10 @@ DW$46	.dwtag  DW_TAG_variable, DW_AT_name("K$23"), DW_AT_symbol_name("K$23")
 L4:    
 DW$L$_sensor_check_4095$2$B:
 ;***	-----------------------g2:
-;*** 40	-----------------------    if ( *(&GpioDataRegs+1)&0x20u ) goto g5;
+;*** 40	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g5;
 	.dwpsn	"check.c",40,3
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |40| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |40| 
         BF        L5,TC                 ; |40| 
         ; branchcc occurs ; |40| 
 DW$L$_sensor_check_4095$2$E:
@@ -391,9 +391,9 @@ DW$L$_sensor_check_4095$4$E:
 L5:    
 DW$L$_sensor_check_4095$5$B:
 ;***	-----------------------g5:
-;*** 49	-----------------------    if ( *(&GpioDataRegs+1)&0x100u ) goto g8;
+;*** 49	-----------------------    if ( *&GpioDataRegs&0x8000u ) goto g8;
 	.dwpsn	"check.c",49,8
-        TBIT      @_GpioDataRegs+1,#8   ; |49| 
+        TBIT      @_GpioDataRegs,#15    ; |49| 
         BF        L6,TC                 ; |49| 
         ; branchcc occurs ; |49| 
 DW$L$_sensor_check_4095$5$E:
@@ -414,8 +414,8 @@ L6:
 DW$L$_sensor_check_4095$8$B:
 ;***	-----------------------g8:
 ;*** 57	-----------------------    DSP28x_usDelay(999998uL);
-;*** 58	-----------------------    VFDPrintf("[%2ld]%4.0f", j, _IQ15toF((K$23[j]).iq15_4095_value));
-;*** 62	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
+;*** 58	-----------------------    VFDPrintf("[%2ld]%4.0f", j, _IQ15toF((K$22[j]).iq15_4095_value));
+;*** 62	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
 	.dwpsn	"check.c",57,3
         MOV       AL,#16958
         MOV       AH,#15
@@ -441,7 +441,7 @@ DW$L$_sensor_check_4095$8$B:
         ; call occurs [#_VFDPrintf] ; |58| 
 	.dwpsn	"check.c",62,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |62| 
+        TBIT      @_GpioDataRegs+1,#15  ; |62| 
         BF        L4,TC                 ; |62| 
         ; branchcc occurs ; |62| 
 DW$L$_sensor_check_4095$8$E:
@@ -464,7 +464,7 @@ DW$L$_sensor_check_4095$8$E:
         ; return occurs
 
 DW$47	.dwtag  DW_TAG_loop
-	.dwattr DW$47, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L4:1:1675599816")
+	.dwattr DW$47, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L4:1:1689386891")
 	.dwattr DW$47, DW_AT_begin_file("check.c")
 	.dwattr DW$47, DW_AT_begin_line(0x25)
 	.dwattr DW$47, DW_AT_end_line(0x43)
@@ -528,7 +528,7 @@ DW$55	.dwtag  DW_TAG_subprogram, DW_AT_name("sensor_check_127"), DW_AT_symbol_na
 _sensor_check_127:
 ;*** 74	-----------------------    *(&CpuTimer0Regs+4L) &= 0xffefu;
 ;***  	-----------------------    #pragma LOOP_FLAGS(5120u)
-;***  	-----------------------    K$22 = &g_sen[0];
+;***  	-----------------------    K$21 = &g_sen[0];
 ;*** 72	-----------------------    j = 0L;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
@@ -545,8 +545,8 @@ _sensor_check_127:
 DW$56	.dwtag  DW_TAG_variable, DW_AT_name("j"), DW_AT_symbol_name("_j")
 	.dwattr DW$56, DW_AT_type(*DW$T$26)
 	.dwattr DW$56, DW_AT_location[DW_OP_reg6]
-;* AR3   assigned to K$22
-DW$57	.dwtag  DW_TAG_variable, DW_AT_name("K$22"), DW_AT_symbol_name("K$22")
+;* AR3   assigned to K$21
+DW$57	.dwtag  DW_TAG_variable, DW_AT_name("K$21"), DW_AT_symbol_name("K$21")
 	.dwattr DW$57, DW_AT_type(*DW$T$80)
 	.dwattr DW$57, DW_AT_location[DW_OP_reg10]
 	.dwpsn	"check.c",74,2
@@ -558,10 +558,10 @@ DW$57	.dwtag  DW_TAG_variable, DW_AT_name("K$22"), DW_AT_symbol_name("K$22")
 L7:    
 DW$L$_sensor_check_127$2$B:
 ;***	-----------------------g2:
-;*** 79	-----------------------    if ( *(&GpioDataRegs+1)&0x20u ) goto g5;
+;*** 79	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g5;
 	.dwpsn	"check.c",79,3
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |79| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |79| 
         BF        L8,TC                 ; |79| 
         ; branchcc occurs ; |79| 
 DW$L$_sensor_check_127$2$E:
@@ -587,9 +587,9 @@ DW$L$_sensor_check_127$4$E:
 L8:    
 DW$L$_sensor_check_127$5$B:
 ;***	-----------------------g5:
-;*** 87	-----------------------    if ( *(&GpioDataRegs+1)&0x100u ) goto g8;
+;*** 87	-----------------------    if ( *&GpioDataRegs&0x8000u ) goto g8;
 	.dwpsn	"check.c",87,8
-        TBIT      @_GpioDataRegs+1,#8   ; |87| 
+        TBIT      @_GpioDataRegs,#15    ; |87| 
         BF        L9,TC                 ; |87| 
         ; branchcc occurs ; |87| 
 DW$L$_sensor_check_127$5$E:
@@ -609,9 +609,9 @@ DW$L$_sensor_check_127$7$E:
 L9:    
 DW$L$_sensor_check_127$8$B:
 ;***	-----------------------g8:
-;*** 95	-----------------------    VFDPrintf("[%2ld]%4.0f", j, _IQ15toF((K$22[j]).iq15_127_value));
+;*** 95	-----------------------    VFDPrintf("[%2ld]%4.0f", j, _IQ15toF((K$21[j]).iq15_127_value));
 ;*** 96	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 100	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
+;*** 100	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
 	.dwpsn	"check.c",95,3
         MOVL      ACC,XAR1
         LSL       ACC,4                 ; |95| 
@@ -638,7 +638,7 @@ DW$L$_sensor_check_127$8$B:
         ; call occurs [#_DSP28x_usDelay] ; |96| 
 	.dwpsn	"check.c",100,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |100| 
+        TBIT      @_GpioDataRegs+1,#15  ; |100| 
         BF        L7,TC                 ; |100| 
         ; branchcc occurs ; |100| 
 DW$L$_sensor_check_127$8$E:
@@ -661,7 +661,7 @@ DW$L$_sensor_check_127$8$E:
         ; return occurs
 
 DW$58	.dwtag  DW_TAG_loop
-	.dwattr DW$58, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L7:1:1675599816")
+	.dwattr DW$58, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L7:1:1689386891")
 	.dwattr DW$58, DW_AT_begin_file("check.c")
 	.dwattr DW$58, DW_AT_begin_line(0x4c)
 	.dwattr DW$58, DW_AT_end_line(0x6a)
@@ -969,7 +969,7 @@ L13:
 DW$L$_position_check$8$B:
 ;***	-----------------------g8:
 ;*** 216	-----------------------    VFDPrintf("P:%5.0f", _IQ7toF(g_pos.iq7temp_pos));
-;*** 219	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
+;*** 219	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
 	.dwpsn	"check.c",216,4
         MOVW      DP,#_g_pos+8
         MOVL      ACC,@_g_pos+8         ; |216| 
@@ -982,7 +982,7 @@ DW$L$_position_check$8$B:
         ; call occurs [#_VFDPrintf] ; |216| 
 	.dwpsn	"check.c",219,3
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |219| 
+        TBIT      @_GpioDataRegs+1,#15  ; |219| 
         BF        L10,TC                ; |219| 
         ; branchcc occurs ; |219| 
 DW$L$_position_check$8$E:
@@ -1008,7 +1008,7 @@ DW$L$_position_check$8$E:
         ; return occurs
 
 DW$79	.dwtag  DW_TAG_loop
-	.dwattr DW$79, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L10:1:1675599816")
+	.dwattr DW$79, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L10:1:1689386891")
 	.dwattr DW$79, DW_AT_begin_file("check.c")
 	.dwattr DW$79, DW_AT_begin_line(0xb0)
 	.dwattr DW$79, DW_AT_end_line(0xe0)
@@ -1071,7 +1071,7 @@ DW$87	.dwtag  DW_TAG_subprogram, DW_AT_name("max_min_check"), DW_AT_symbol_name(
 ;***************************************************************
 _max_min_check:
 ;***  	-----------------------    #pragma LOOP_FLAGS(5120u)
-;***  	-----------------------    K$18 = &g_sen[0];
+;***  	-----------------------    K$17 = &g_sen[0];
 ;*** 111	-----------------------    j = 0L;
 	.dwcfa	0x1d, -2
 	.dwcfa	0x1c, 26, 0
@@ -1084,8 +1084,8 @@ _max_min_check:
 	.dwcfa	0x1d, -6
         ADDB      SP,#6
 	.dwcfa	0x1d, -12
-;* AR3   assigned to K$18
-DW$88	.dwtag  DW_TAG_variable, DW_AT_name("K$18"), DW_AT_symbol_name("K$18")
+;* AR3   assigned to K$17
+DW$88	.dwtag  DW_TAG_variable, DW_AT_name("K$17"), DW_AT_symbol_name("K$17")
 	.dwattr DW$88, DW_AT_type(*DW$T$80)
 	.dwattr DW$88, DW_AT_location[DW_OP_reg10]
 ;* AR1   assigned to _j
@@ -1102,10 +1102,10 @@ DW$90	.dwtag  DW_TAG_variable, DW_AT_name("j"), DW_AT_symbol_name("_j")
 L14:    
 DW$L$_max_min_check$2$B:
 ;***	-----------------------g2:
-;*** 116	-----------------------    if ( *(&GpioDataRegs+1)&0x20u ) goto g5;
+;*** 116	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g5;
 	.dwpsn	"check.c",116,3
-        MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#5   ; |116| 
+        MOVW      DP,#_GpioDataRegs
+        TBIT      @_GpioDataRegs,#14    ; |116| 
         BF        L15,TC                ; |116| 
         ; branchcc occurs ; |116| 
 DW$L$_max_min_check$2$E:
@@ -1131,9 +1131,9 @@ DW$L$_max_min_check$4$E:
 L15:    
 DW$L$_max_min_check$5$B:
 ;***	-----------------------g5:
-;*** 124	-----------------------    if ( *(&GpioDataRegs+1)&0x100u ) goto g8;
+;*** 124	-----------------------    if ( *&GpioDataRegs&0x8000u ) goto g8;
 	.dwpsn	"check.c",124,8
-        TBIT      @_GpioDataRegs+1,#8   ; |124| 
+        TBIT      @_GpioDataRegs,#15    ; |124| 
         BF        L16,TC                ; |124| 
         ; branchcc occurs ; |124| 
 DW$L$_max_min_check$5$E:
@@ -1153,9 +1153,9 @@ DW$L$_max_min_check$7$E:
 L16:    
 DW$L$_max_min_check$8$B:
 ;***	-----------------------g8:
-;*** 132	-----------------------    VFDPrintf("M%2ld:%4.0f", j, _IQ15toF((K$18[j]).iq15_4095_max_value));
+;*** 132	-----------------------    VFDPrintf("M%2ld:%4.0f", j, _IQ15toF((K$17[j]).iq15_4095_max_value));
 ;*** 133	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 138	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g2;
+;*** 138	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g2;
 	.dwpsn	"check.c",132,3
         MOVL      ACC,XAR1
         LSL       ACC,4                 ; |132| 
@@ -1181,7 +1181,7 @@ DW$L$_max_min_check$8$B:
         ; call occurs [#_DSP28x_usDelay] ; |133| 
 	.dwpsn	"check.c",138,4
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |138| 
+        TBIT      @_GpioDataRegs+1,#15  ; |138| 
         BF        L14,TC                ; |138| 
         ; branchcc occurs ; |138| 
 DW$L$_max_min_check$8$E:
@@ -1192,9 +1192,9 @@ DW$L$_max_min_check$8$E:
 L17:    
 DW$L$_max_min_check$10$B:
 ;***	-----------------------g10:
-;*** 146	-----------------------    if ( *(&GpioDataRegs+1)&0x20u ) goto g13;
+;*** 146	-----------------------    if ( *&GpioDataRegs&0x4000u ) goto g13;
 	.dwpsn	"check.c",146,3
-        TBIT      @_GpioDataRegs+1,#5   ; |146| 
+        TBIT      @_GpioDataRegs,#14    ; |146| 
         BF        L18,TC                ; |146| 
         ; branchcc occurs ; |146| 
 DW$L$_max_min_check$10$E:
@@ -1220,9 +1220,9 @@ DW$L$_max_min_check$12$E:
 L18:    
 DW$L$_max_min_check$13$B:
 ;***	-----------------------g13:
-;*** 154	-----------------------    if ( *(&GpioDataRegs+1)&0x100u ) goto g16;
+;*** 154	-----------------------    if ( *&GpioDataRegs&0x8000u ) goto g16;
 	.dwpsn	"check.c",154,8
-        TBIT      @_GpioDataRegs+1,#8   ; |154| 
+        TBIT      @_GpioDataRegs,#15    ; |154| 
         BF        L19,TC                ; |154| 
         ; branchcc occurs ; |154| 
 DW$L$_max_min_check$13$E:
@@ -1242,9 +1242,9 @@ DW$L$_max_min_check$15$E:
 L19:    
 DW$L$_max_min_check$16$B:
 ;***	-----------------------g16:
-;*** 162	-----------------------    VFDPrintf("m%2ld:%4.0f", j, _IQ15toF((K$18[j]).iq15_4095_min_value));
+;*** 162	-----------------------    VFDPrintf("m%2ld:%4.0f", j, _IQ15toF((K$17[j]).iq15_4095_min_value));
 ;*** 163	-----------------------    DSP28x_usDelay(1999998uL);
-;*** 168	-----------------------    if ( *(&GpioDataRegs+1)&0x4000u ) goto g10;
+;*** 168	-----------------------    if ( *(&GpioDataRegs+1)&0x8000u ) goto g10;
 ;***  	-----------------------    return;
 	.dwpsn	"check.c",162,3
         MOVL      ACC,XAR1
@@ -1271,7 +1271,7 @@ DW$L$_max_min_check$16$B:
         ; call occurs [#_DSP28x_usDelay] ; |163| 
 	.dwpsn	"check.c",168,4
         MOVW      DP,#_GpioDataRegs+1
-        TBIT      @_GpioDataRegs+1,#14  ; |168| 
+        TBIT      @_GpioDataRegs+1,#15  ; |168| 
         BF        L17,TC                ; |168| 
         ; branchcc occurs ; |168| 
 DW$L$_max_min_check$16$E:
@@ -1288,7 +1288,7 @@ DW$L$_max_min_check$16$E:
         ; return occurs
 
 DW$91	.dwtag  DW_TAG_loop
-	.dwattr DW$91, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L17:1:1675599816")
+	.dwattr DW$91, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L17:1:1689386891")
 	.dwattr DW$91, DW_AT_begin_file("check.c")
 	.dwattr DW$91, DW_AT_begin_line(0x8f)
 	.dwattr DW$91, DW_AT_end_line(0xa9)
@@ -1317,7 +1317,7 @@ DW$98	.dwtag  DW_TAG_loop_range
 
 
 DW$99	.dwtag  DW_TAG_loop
-	.dwattr DW$99, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L14:1:1675599816")
+	.dwattr DW$99, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L14:1:1689386891")
 	.dwattr DW$99, DW_AT_begin_file("check.c")
 	.dwattr DW$99, DW_AT_begin_line(0x71)
 	.dwattr DW$99, DW_AT_end_line(0x8b)
@@ -1560,7 +1560,7 @@ DW$L$_line_info_check$2$E:
         ; return occurs
 
 DW$109	.dwtag  DW_TAG_loop
-	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L20:1:1675599816")
+	.dwattr DW$109, DW_AT_name("H:\Tracer_Mouse\Tracer\STEP\Vulture\main\check.asm:L20:1:1689386891")
 	.dwattr DW$109, DW_AT_begin_file("check.c")
 	.dwattr DW$109, DW_AT_begin_line(0xe9)
 	.dwattr DW$109, DW_AT_end_line(0xf3)
